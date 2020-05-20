@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="rpcContract-1.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../lib/rpcContract-1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

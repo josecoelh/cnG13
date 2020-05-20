@@ -1,0 +1,1 @@
+java -cp ..\lib\rpcContract-1.0.jar;target\BaseServiceImpl-1.0-jar-with-dependencies.jar serverapp.Server  8000
