@@ -3,13 +3,15 @@ package serverapp;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.FirestoreOptions;
+import com.google.cloud.storage.Storage;
+import com.google.cloud.storage.StorageOptions;
 import com.google.protobuf.Empty;
 import com.sun.org.apache.xalan.internal.xsltc.runtime.Operators;
 import io.grpc.ServerBuilder;
+import io.grpc.stub.ClientCalls;
+import io.grpc.stub.ServerCalls;
 import io.grpc.stub.StreamObserver;
-import services.ProtoUser;
-import services.SessionId;
-import services.UserServiceGrpc;
+import services.*;
 import userOperations.User;
 import userOperations.UserOperations;
 
@@ -18,10 +20,11 @@ import java.util.Scanner;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 
-public class Server extends UserServiceGrpc.UserServiceImplBase {
+public class Server extends ServiceGrpc.ServiceImplBase {
 
     private static int svcPort = 8000;
     private static UserOperations userOps;
+    private static ImageRepository imgRepo;
     private static ConcurrentLinkedQueue<String> sessionQueue = new ConcurrentLinkedQueue<>();
     private static final Object monitor = new Object();
 
@@ -33,10 +36,10 @@ public class Server extends UserServiceGrpc.UserServiceImplBase {
                     .addService(new Server())
                     .build();
             svc.start();
-            GoogleCredentials credentials = GoogleCredentials.getApplicationDefault();
-            FirestoreOptions options = FirestoreOptions.newBuilder().setCredentials(credentials).build();
-            Firestore db = options.getService();
-            userOps = new UserOperations(db);
+            userOps = new UserOperations();
+            imgRepo = new ImageRepository();
+
+
             System.out.println("Server started, listening on " + svcPort);
             Scanner scan = new Scanner(System.in);
             scan.nextLine();
@@ -64,7 +67,10 @@ public class Server extends UserServiceGrpc.UserServiceImplBase {
             if (user == null) {
                 sessionId = SessionId.newBuilder().setCredentials(false).setAlreadyLoggedIn(false).build();
             } else {
-                sessionId = SessionId.newBuilder().setId(user.getUsername()).setCredentials(true).setAlreadyLoggedIn(false).build();
+                sessionId = SessionId.newBuilder().setId(user.getUsername())
+                        .setIsPremium(user.isPremium())
+                        .setCredentials(true)
+                        .setAlreadyLoggedIn(false).build();
                 sessionQueue.add(user.getUsername());
             }
             responseObserver.onNext(sessionId);
@@ -72,6 +78,9 @@ public class Server extends UserServiceGrpc.UserServiceImplBase {
         }
     }
 
+    /*
+     * removes the user from the sessionQueue and notifies the client*/
+    @Override
     public void close(SessionId request, StreamObserver<Empty> responseObserver) {
         synchronized (monitor) {
             sessionQueue.remove(request.getId());
@@ -80,5 +89,19 @@ public class Server extends UserServiceGrpc.UserServiceImplBase {
         }
     }
 
+    @Override
+    public void sendImage(Image request, StreamObserver<ImageId> responseObserver) {
+        ImageId response = imgRepo.uploadImage(request);
+        if (!response.getFailed()) userOps.addUserImg(request.getUser().getId(), request.getImageName());
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+
+    }
+
+    public void listUserImages(SessionId request, StreamObserver<UserImages> responseObserver) {
+        UserImages userImages = userOps.listUserImages(request.getId());
+        responseObserver.onNext(userImages);
+        responseObserver.onCompleted();
+    }
 
 }

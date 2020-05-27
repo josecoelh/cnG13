@@ -18,12 +18,17 @@ public interface SessionIdOrBuilder extends
       getIdBytes();
 
   /**
-   * <code>bool credentials = 2;</code>
+   * <code>bool isPremium = 2;</code>
+   */
+  boolean getIsPremium();
+
+  /**
+   * <code>bool credentials = 3;</code>
    */
   boolean getCredentials();
 
   /**
-   * <code>bool alreadyLoggedIn = 3;</code>
+   * <code>bool alreadyLoggedIn = 4;</code>
    */
   boolean getAlreadyLoggedIn();
 }

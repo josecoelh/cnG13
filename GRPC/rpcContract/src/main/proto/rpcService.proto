@@ -7,19 +7,38 @@ option java_package = "services";
 package primesservice; // package do proto
 
 
-service UserService {
+service Service {
     rpc login(ProtoUser) returns (SessionId);
     rpc close(SessionId) returns (google.protobuf.Empty);
-
-
+    rpc sendImage(Image) returns (ImageId);
+    rpc listUserImages(SessionId) returns (UserImages);
 }
 
-message ProtoUser {
+message Image{
+    bytes image = 1;
+    string imageName =2;
+    string contentType =3;
+    SessionId user = 4;
+}
+
+message UserImages {
+    // list of topic names
+    repeated string imageId = 1;
+}
+
+message ImageId {
+    string imageId = 1;
+    bool failed = 2;
+    string errorMsg = 3;
+}
+
+    message ProtoUser {
     string username = 1;
     string accountType = 2;
 }
 message SessionId {
     string id = 1;
-    bool credentials = 2;
-    bool alreadyLoggedIn = 3;
+    bool isPremium = 2;
+    bool credentials = 3;
+    bool alreadyLoggedIn = 4;
 }

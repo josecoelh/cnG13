@@ -15,6 +15,21 @@ public final class RpcService {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_primesservice_Image_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_primesservice_Image_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_primesservice_UserImages_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_primesservice_UserImages_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_primesservice_ImageId_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_primesservice_ImageId_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_primesservice_ProtoUser_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -34,14 +49,23 @@ public final class RpcService {
   static {
     java.lang.String[] descriptorData = {
       "\n\020rpcService.proto\022\rprimesservice\032\033googl" +
-      "e/protobuf/empty.proto\"2\n\tProtoUser\022\020\n\010u" +
-      "sername\030\001 \001(\t\022\023\n\013accountType\030\002 \001(\t\"E\n\tSe" +
-      "ssionId\022\n\n\002id\030\001 \001(\t\022\023\n\013credentials\030\002 \001(\010" +
-      "\022\027\n\017alreadyLoggedIn\030\003 \001(\0102\205\001\n\013UserServic" +
-      "e\022;\n\005login\022\030.primesservice.ProtoUser\032\030.p" +
-      "rimesservice.SessionId\0229\n\005close\022\030.primes" +
-      "service.SessionId\032\026.google.protobuf.Empt" +
-      "yB\014\n\010servicesP\001b\006proto3"
+      "e/protobuf/empty.proto\"f\n\005Image\022\r\n\005image" +
+      "\030\001 \001(\014\022\021\n\timageName\030\002 \001(\t\022\023\n\013contentType" +
+      "\030\003 \001(\t\022&\n\004user\030\004 \001(\0132\030.primesservice.Ses" +
+      "sionId\"\035\n\nUserImages\022\017\n\007imageId\030\001 \003(\t\"<\n" +
+      "\007ImageId\022\017\n\007imageId\030\001 \001(\t\022\016\n\006failed\030\002 \001(" +
+      "\010\022\020\n\010errorMsg\030\003 \001(\t\"2\n\tProtoUser\022\020\n\010user" +
+      "name\030\001 \001(\t\022\023\n\013accountType\030\002 \001(\t\"X\n\tSessi" +
+      "onId\022\n\n\002id\030\001 \001(\t\022\021\n\tisPremium\030\002 \001(\010\022\023\n\013c" +
+      "redentials\030\003 \001(\010\022\027\n\017alreadyLoggedIn\030\004 \001(" +
+      "\0102\203\002\n\007Service\022;\n\005login\022\030.primesservice.P" +
+      "rotoUser\032\030.primesservice.SessionId\0229\n\005cl" +
+      "ose\022\030.primesservice.SessionId\032\026.google.p" +
+      "rotobuf.Empty\0229\n\tsendImage\022\024.primesservi" +
+      "ce.Image\032\026.primesservice.ImageId\022E\n\016list" +
+      "UserImages\022\030.primesservice.SessionId\032\031.p" +
+      "rimesservice.UserImagesB\014\n\010servicesP\001b\006p" +
+      "roto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -56,18 +80,36 @@ public final class RpcService {
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.protobuf.EmptyProto.getDescriptor(),
         }, assigner);
-    internal_static_primesservice_ProtoUser_descriptor =
+    internal_static_primesservice_Image_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_primesservice_Image_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_primesservice_Image_descriptor,
+        new java.lang.String[] { "Image", "ImageName", "ContentType", "User", });
+    internal_static_primesservice_UserImages_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_primesservice_UserImages_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_primesservice_UserImages_descriptor,
+        new java.lang.String[] { "ImageId", });
+    internal_static_primesservice_ImageId_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_primesservice_ImageId_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_primesservice_ImageId_descriptor,
+        new java.lang.String[] { "ImageId", "Failed", "ErrorMsg", });
+    internal_static_primesservice_ProtoUser_descriptor =
+      getDescriptor().getMessageTypes().get(3);
     internal_static_primesservice_ProtoUser_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_primesservice_ProtoUser_descriptor,
         new java.lang.String[] { "Username", "AccountType", });
     internal_static_primesservice_SessionId_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_primesservice_SessionId_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_primesservice_SessionId_descriptor,
-        new java.lang.String[] { "Id", "Credentials", "AlreadyLoggedIn", });
+        new java.lang.String[] { "Id", "IsPremium", "Credentials", "AlreadyLoggedIn", });
     com.google.protobuf.EmptyProto.getDescriptor();
   }
 

@@ -17,6 +17,7 @@ private static final long serialVersionUID = 0L;
   }
   private SessionId() {
     id_ = "";
+    isPremium_ = false;
     credentials_ = false;
     alreadyLoggedIn_ = false;
   }
@@ -60,10 +61,15 @@ private static final long serialVersionUID = 0L;
           }
           case 16: {
 
-            credentials_ = input.readBool();
+            isPremium_ = input.readBool();
             break;
           }
           case 24: {
+
+            credentials_ = input.readBool();
+            break;
+          }
+          case 32: {
 
             alreadyLoggedIn_ = input.readBool();
             break;
@@ -126,19 +132,28 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int CREDENTIALS_FIELD_NUMBER = 2;
+  public static final int ISPREMIUM_FIELD_NUMBER = 2;
+  private boolean isPremium_;
+  /**
+   * <code>bool isPremium = 2;</code>
+   */
+  public boolean getIsPremium() {
+    return isPremium_;
+  }
+
+  public static final int CREDENTIALS_FIELD_NUMBER = 3;
   private boolean credentials_;
   /**
-   * <code>bool credentials = 2;</code>
+   * <code>bool credentials = 3;</code>
    */
   public boolean getCredentials() {
     return credentials_;
   }
 
-  public static final int ALREADYLOGGEDIN_FIELD_NUMBER = 3;
+  public static final int ALREADYLOGGEDIN_FIELD_NUMBER = 4;
   private boolean alreadyLoggedIn_;
   /**
-   * <code>bool alreadyLoggedIn = 3;</code>
+   * <code>bool alreadyLoggedIn = 4;</code>
    */
   public boolean getAlreadyLoggedIn() {
     return alreadyLoggedIn_;
@@ -159,11 +174,14 @@ private static final long serialVersionUID = 0L;
     if (!getIdBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
     }
+    if (isPremium_ != false) {
+      output.writeBool(2, isPremium_);
+    }
     if (credentials_ != false) {
-      output.writeBool(2, credentials_);
+      output.writeBool(3, credentials_);
     }
     if (alreadyLoggedIn_ != false) {
-      output.writeBool(3, alreadyLoggedIn_);
+      output.writeBool(4, alreadyLoggedIn_);
     }
     unknownFields.writeTo(output);
   }
@@ -176,13 +194,17 @@ private static final long serialVersionUID = 0L;
     if (!getIdBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
     }
+    if (isPremium_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(2, isPremium_);
+    }
     if (credentials_ != false) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(2, credentials_);
+        .computeBoolSize(3, credentials_);
     }
     if (alreadyLoggedIn_ != false) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(3, alreadyLoggedIn_);
+        .computeBoolSize(4, alreadyLoggedIn_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -202,6 +224,8 @@ private static final long serialVersionUID = 0L;
     boolean result = true;
     result = result && getId()
         .equals(other.getId());
+    result = result && (getIsPremium()
+        == other.getIsPremium());
     result = result && (getCredentials()
         == other.getCredentials());
     result = result && (getAlreadyLoggedIn()
@@ -219,6 +243,9 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + ID_FIELD_NUMBER;
     hash = (53 * hash) + getId().hashCode();
+    hash = (37 * hash) + ISPREMIUM_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getIsPremium());
     hash = (37 * hash) + CREDENTIALS_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getCredentials());
@@ -356,6 +383,8 @@ private static final long serialVersionUID = 0L;
       super.clear();
       id_ = "";
 
+      isPremium_ = false;
+
       credentials_ = false;
 
       alreadyLoggedIn_ = false;
@@ -383,6 +412,7 @@ private static final long serialVersionUID = 0L;
     public services.SessionId buildPartial() {
       services.SessionId result = new services.SessionId(this);
       result.id_ = id_;
+      result.isPremium_ = isPremium_;
       result.credentials_ = credentials_;
       result.alreadyLoggedIn_ = alreadyLoggedIn_;
       onBuilt();
@@ -429,6 +459,9 @@ private static final long serialVersionUID = 0L;
       if (!other.getId().isEmpty()) {
         id_ = other.id_;
         onChanged();
+      }
+      if (other.getIsPremium() != false) {
+        setIsPremium(other.getIsPremium());
       }
       if (other.getCredentials() != false) {
         setCredentials(other.getCredentials());
@@ -532,15 +565,41 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private boolean isPremium_ ;
+    /**
+     * <code>bool isPremium = 2;</code>
+     */
+    public boolean getIsPremium() {
+      return isPremium_;
+    }
+    /**
+     * <code>bool isPremium = 2;</code>
+     */
+    public Builder setIsPremium(boolean value) {
+      
+      isPremium_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool isPremium = 2;</code>
+     */
+    public Builder clearIsPremium() {
+      
+      isPremium_ = false;
+      onChanged();
+      return this;
+    }
+
     private boolean credentials_ ;
     /**
-     * <code>bool credentials = 2;</code>
+     * <code>bool credentials = 3;</code>
      */
     public boolean getCredentials() {
       return credentials_;
     }
     /**
-     * <code>bool credentials = 2;</code>
+     * <code>bool credentials = 3;</code>
      */
     public Builder setCredentials(boolean value) {
       
@@ -549,7 +608,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>bool credentials = 2;</code>
+     * <code>bool credentials = 3;</code>
      */
     public Builder clearCredentials() {
       
@@ -560,13 +619,13 @@ private static final long serialVersionUID = 0L;
 
     private boolean alreadyLoggedIn_ ;
     /**
-     * <code>bool alreadyLoggedIn = 3;</code>
+     * <code>bool alreadyLoggedIn = 4;</code>
      */
     public boolean getAlreadyLoggedIn() {
       return alreadyLoggedIn_;
     }
     /**
-     * <code>bool alreadyLoggedIn = 3;</code>
+     * <code>bool alreadyLoggedIn = 4;</code>
      */
     public Builder setAlreadyLoggedIn(boolean value) {
       
@@ -575,7 +634,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>bool alreadyLoggedIn = 3;</code>
+     * <code>bool alreadyLoggedIn = 4;</code>
      */
     public Builder clearAlreadyLoggedIn() {
       

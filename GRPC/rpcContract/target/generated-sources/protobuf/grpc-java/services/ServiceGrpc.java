@@ -20,11 +20,11 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.18.0)",
     comments = "Source: rpcService.proto")
-public final class UserServiceGrpc {
+public final class ServiceGrpc {
 
-  private UserServiceGrpc() {}
+  private ServiceGrpc() {}
 
-  public static final String SERVICE_NAME = "primesservice.UserService";
+  public static final String SERVICE_NAME = "primesservice.Service";
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<services.ProtoUser,
@@ -38,20 +38,20 @@ public final class UserServiceGrpc {
   public static io.grpc.MethodDescriptor<services.ProtoUser,
       services.SessionId> getLoginMethod() {
     io.grpc.MethodDescriptor<services.ProtoUser, services.SessionId> getLoginMethod;
-    if ((getLoginMethod = UserServiceGrpc.getLoginMethod) == null) {
-      synchronized (UserServiceGrpc.class) {
-        if ((getLoginMethod = UserServiceGrpc.getLoginMethod) == null) {
-          UserServiceGrpc.getLoginMethod = getLoginMethod = 
+    if ((getLoginMethod = ServiceGrpc.getLoginMethod) == null) {
+      synchronized (ServiceGrpc.class) {
+        if ((getLoginMethod = ServiceGrpc.getLoginMethod) == null) {
+          ServiceGrpc.getLoginMethod = getLoginMethod = 
               io.grpc.MethodDescriptor.<services.ProtoUser, services.SessionId>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "primesservice.UserService", "login"))
+                  "primesservice.Service", "login"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   services.ProtoUser.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   services.SessionId.getDefaultInstance()))
-                  .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("login"))
+                  .setSchemaDescriptor(new ServiceMethodDescriptorSupplier("login"))
                   .build();
           }
         }
@@ -70,20 +70,20 @@ public final class UserServiceGrpc {
   public static io.grpc.MethodDescriptor<services.SessionId,
       com.google.protobuf.Empty> getCloseMethod() {
     io.grpc.MethodDescriptor<services.SessionId, com.google.protobuf.Empty> getCloseMethod;
-    if ((getCloseMethod = UserServiceGrpc.getCloseMethod) == null) {
-      synchronized (UserServiceGrpc.class) {
-        if ((getCloseMethod = UserServiceGrpc.getCloseMethod) == null) {
-          UserServiceGrpc.getCloseMethod = getCloseMethod = 
+    if ((getCloseMethod = ServiceGrpc.getCloseMethod) == null) {
+      synchronized (ServiceGrpc.class) {
+        if ((getCloseMethod = ServiceGrpc.getCloseMethod) == null) {
+          ServiceGrpc.getCloseMethod = getCloseMethod = 
               io.grpc.MethodDescriptor.<services.SessionId, com.google.protobuf.Empty>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "primesservice.UserService", "close"))
+                  "primesservice.Service", "close"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   services.SessionId.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.google.protobuf.Empty.getDefaultInstance()))
-                  .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("close"))
+                  .setSchemaDescriptor(new ServiceMethodDescriptorSupplier("close"))
                   .build();
           }
         }
@@ -91,32 +91,96 @@ public final class UserServiceGrpc {
      return getCloseMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<services.Image,
+      services.ImageId> getSendImageMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "sendImage",
+      requestType = services.Image.class,
+      responseType = services.ImageId.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<services.Image,
+      services.ImageId> getSendImageMethod() {
+    io.grpc.MethodDescriptor<services.Image, services.ImageId> getSendImageMethod;
+    if ((getSendImageMethod = ServiceGrpc.getSendImageMethod) == null) {
+      synchronized (ServiceGrpc.class) {
+        if ((getSendImageMethod = ServiceGrpc.getSendImageMethod) == null) {
+          ServiceGrpc.getSendImageMethod = getSendImageMethod = 
+              io.grpc.MethodDescriptor.<services.Image, services.ImageId>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "primesservice.Service", "sendImage"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  services.Image.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  services.ImageId.getDefaultInstance()))
+                  .setSchemaDescriptor(new ServiceMethodDescriptorSupplier("sendImage"))
+                  .build();
+          }
+        }
+     }
+     return getSendImageMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<services.SessionId,
+      services.UserImages> getListUserImagesMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "listUserImages",
+      requestType = services.SessionId.class,
+      responseType = services.UserImages.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<services.SessionId,
+      services.UserImages> getListUserImagesMethod() {
+    io.grpc.MethodDescriptor<services.SessionId, services.UserImages> getListUserImagesMethod;
+    if ((getListUserImagesMethod = ServiceGrpc.getListUserImagesMethod) == null) {
+      synchronized (ServiceGrpc.class) {
+        if ((getListUserImagesMethod = ServiceGrpc.getListUserImagesMethod) == null) {
+          ServiceGrpc.getListUserImagesMethod = getListUserImagesMethod = 
+              io.grpc.MethodDescriptor.<services.SessionId, services.UserImages>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "primesservice.Service", "listUserImages"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  services.SessionId.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  services.UserImages.getDefaultInstance()))
+                  .setSchemaDescriptor(new ServiceMethodDescriptorSupplier("listUserImages"))
+                  .build();
+          }
+        }
+     }
+     return getListUserImagesMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
-  public static UserServiceStub newStub(io.grpc.Channel channel) {
-    return new UserServiceStub(channel);
+  public static ServiceStub newStub(io.grpc.Channel channel) {
+    return new ServiceStub(channel);
   }
 
   /**
    * Creates a new blocking-style stub that supports unary and streaming output calls on the service
    */
-  public static UserServiceBlockingStub newBlockingStub(
+  public static ServiceBlockingStub newBlockingStub(
       io.grpc.Channel channel) {
-    return new UserServiceBlockingStub(channel);
+    return new ServiceBlockingStub(channel);
   }
 
   /**
    * Creates a new ListenableFuture-style stub that supports unary calls on the service
    */
-  public static UserServiceFutureStub newFutureStub(
+  public static ServiceFutureStub newFutureStub(
       io.grpc.Channel channel) {
-    return new UserServiceFutureStub(channel);
+    return new ServiceFutureStub(channel);
   }
 
   /**
    */
-  public static abstract class UserServiceImplBase implements io.grpc.BindableService {
+  public static abstract class ServiceImplBase implements io.grpc.BindableService {
 
     /**
      */
@@ -130,6 +194,20 @@ public final class UserServiceGrpc {
     public void close(services.SessionId request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       asyncUnimplementedUnaryCall(getCloseMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void sendImage(services.Image request,
+        io.grpc.stub.StreamObserver<services.ImageId> responseObserver) {
+      asyncUnimplementedUnaryCall(getSendImageMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void listUserImages(services.SessionId request,
+        io.grpc.stub.StreamObserver<services.UserImages> responseObserver) {
+      asyncUnimplementedUnaryCall(getListUserImagesMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
@@ -148,26 +226,40 @@ public final class UserServiceGrpc {
                 services.SessionId,
                 com.google.protobuf.Empty>(
                   this, METHODID_CLOSE)))
+          .addMethod(
+            getSendImageMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                services.Image,
+                services.ImageId>(
+                  this, METHODID_SEND_IMAGE)))
+          .addMethod(
+            getListUserImagesMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                services.SessionId,
+                services.UserImages>(
+                  this, METHODID_LIST_USER_IMAGES)))
           .build();
     }
   }
 
   /**
    */
-  public static final class UserServiceStub extends io.grpc.stub.AbstractStub<UserServiceStub> {
-    private UserServiceStub(io.grpc.Channel channel) {
+  public static final class ServiceStub extends io.grpc.stub.AbstractStub<ServiceStub> {
+    private ServiceStub(io.grpc.Channel channel) {
       super(channel);
     }
 
-    private UserServiceStub(io.grpc.Channel channel,
+    private ServiceStub(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected UserServiceStub build(io.grpc.Channel channel,
+    protected ServiceStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
-      return new UserServiceStub(channel, callOptions);
+      return new ServiceStub(channel, callOptions);
     }
 
     /**
@@ -185,24 +277,40 @@ public final class UserServiceGrpc {
       asyncUnaryCall(
           getChannel().newCall(getCloseMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void sendImage(services.Image request,
+        io.grpc.stub.StreamObserver<services.ImageId> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getSendImageMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void listUserImages(services.SessionId request,
+        io.grpc.stub.StreamObserver<services.UserImages> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getListUserImagesMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
    */
-  public static final class UserServiceBlockingStub extends io.grpc.stub.AbstractStub<UserServiceBlockingStub> {
-    private UserServiceBlockingStub(io.grpc.Channel channel) {
+  public static final class ServiceBlockingStub extends io.grpc.stub.AbstractStub<ServiceBlockingStub> {
+    private ServiceBlockingStub(io.grpc.Channel channel) {
       super(channel);
     }
 
-    private UserServiceBlockingStub(io.grpc.Channel channel,
+    private ServiceBlockingStub(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected UserServiceBlockingStub build(io.grpc.Channel channel,
+    protected ServiceBlockingStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
-      return new UserServiceBlockingStub(channel, callOptions);
+      return new ServiceBlockingStub(channel, callOptions);
     }
 
     /**
@@ -218,24 +326,38 @@ public final class UserServiceGrpc {
       return blockingUnaryCall(
           getChannel(), getCloseMethod(), getCallOptions(), request);
     }
+
+    /**
+     */
+    public services.ImageId sendImage(services.Image request) {
+      return blockingUnaryCall(
+          getChannel(), getSendImageMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public services.UserImages listUserImages(services.SessionId request) {
+      return blockingUnaryCall(
+          getChannel(), getListUserImagesMethod(), getCallOptions(), request);
+    }
   }
 
   /**
    */
-  public static final class UserServiceFutureStub extends io.grpc.stub.AbstractStub<UserServiceFutureStub> {
-    private UserServiceFutureStub(io.grpc.Channel channel) {
+  public static final class ServiceFutureStub extends io.grpc.stub.AbstractStub<ServiceFutureStub> {
+    private ServiceFutureStub(io.grpc.Channel channel) {
       super(channel);
     }
 
-    private UserServiceFutureStub(io.grpc.Channel channel,
+    private ServiceFutureStub(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected UserServiceFutureStub build(io.grpc.Channel channel,
+    protected ServiceFutureStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
-      return new UserServiceFutureStub(channel, callOptions);
+      return new ServiceFutureStub(channel, callOptions);
     }
 
     /**
@@ -253,20 +375,38 @@ public final class UserServiceGrpc {
       return futureUnaryCall(
           getChannel().newCall(getCloseMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<services.ImageId> sendImage(
+        services.Image request) {
+      return futureUnaryCall(
+          getChannel().newCall(getSendImageMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<services.UserImages> listUserImages(
+        services.SessionId request) {
+      return futureUnaryCall(
+          getChannel().newCall(getListUserImagesMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_LOGIN = 0;
   private static final int METHODID_CLOSE = 1;
+  private static final int METHODID_SEND_IMAGE = 2;
+  private static final int METHODID_LIST_USER_IMAGES = 3;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.ServerStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.ClientStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.BidiStreamingMethod<Req, Resp> {
-    private final UserServiceImplBase serviceImpl;
+    private final ServiceImplBase serviceImpl;
     private final int methodId;
 
-    MethodHandlers(UserServiceImplBase serviceImpl, int methodId) {
+    MethodHandlers(ServiceImplBase serviceImpl, int methodId) {
       this.serviceImpl = serviceImpl;
       this.methodId = methodId;
     }
@@ -282,6 +422,14 @@ public final class UserServiceGrpc {
         case METHODID_CLOSE:
           serviceImpl.close((services.SessionId) request,
               (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
+          break;
+        case METHODID_SEND_IMAGE:
+          serviceImpl.sendImage((services.Image) request,
+              (io.grpc.stub.StreamObserver<services.ImageId>) responseObserver);
+          break;
+        case METHODID_LIST_USER_IMAGES:
+          serviceImpl.listUserImages((services.SessionId) request,
+              (io.grpc.stub.StreamObserver<services.UserImages>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -299,9 +447,9 @@ public final class UserServiceGrpc {
     }
   }
 
-  private static abstract class UserServiceBaseDescriptorSupplier
+  private static abstract class ServiceBaseDescriptorSupplier
       implements io.grpc.protobuf.ProtoFileDescriptorSupplier, io.grpc.protobuf.ProtoServiceDescriptorSupplier {
-    UserServiceBaseDescriptorSupplier() {}
+    ServiceBaseDescriptorSupplier() {}
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
@@ -310,21 +458,21 @@ public final class UserServiceGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.ServiceDescriptor getServiceDescriptor() {
-      return getFileDescriptor().findServiceByName("UserService");
+      return getFileDescriptor().findServiceByName("Service");
     }
   }
 
-  private static final class UserServiceFileDescriptorSupplier
-      extends UserServiceBaseDescriptorSupplier {
-    UserServiceFileDescriptorSupplier() {}
+  private static final class ServiceFileDescriptorSupplier
+      extends ServiceBaseDescriptorSupplier {
+    ServiceFileDescriptorSupplier() {}
   }
 
-  private static final class UserServiceMethodDescriptorSupplier
-      extends UserServiceBaseDescriptorSupplier
+  private static final class ServiceMethodDescriptorSupplier
+      extends ServiceBaseDescriptorSupplier
       implements io.grpc.protobuf.ProtoMethodDescriptorSupplier {
     private final String methodName;
 
-    UserServiceMethodDescriptorSupplier(String methodName) {
+    ServiceMethodDescriptorSupplier(String methodName) {
       this.methodName = methodName;
     }
 
@@ -339,13 +487,15 @@ public final class UserServiceGrpc {
   public static io.grpc.ServiceDescriptor getServiceDescriptor() {
     io.grpc.ServiceDescriptor result = serviceDescriptor;
     if (result == null) {
-      synchronized (UserServiceGrpc.class) {
+      synchronized (ServiceGrpc.class) {
         result = serviceDescriptor;
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
-              .setSchemaDescriptor(new UserServiceFileDescriptorSupplier())
+              .setSchemaDescriptor(new ServiceFileDescriptorSupplier())
               .addMethod(getLoginMethod())
               .addMethod(getCloseMethod())
+              .addMethod(getSendImageMethod())
+              .addMethod(getListUserImagesMethod())
               .build();
         }
       }

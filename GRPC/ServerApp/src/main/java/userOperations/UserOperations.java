@@ -1,21 +1,28 @@
 package userOperations;
 
 import com.google.api.core.ApiFuture;
-import com.google.cloud.firestore.CollectionReference;
-import com.google.cloud.firestore.DocumentReference;
-import com.google.cloud.firestore.DocumentSnapshot;
-import com.google.cloud.firestore.Firestore;
+import com.google.auth.oauth2.GoogleCredentials;
+import com.google.cloud.firestore.*;
+import services.UserImages;
 
+import java.io.IOException;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 
 public class UserOperations {
     private final static String COLLECTION = "Users";
-    private static Firestore db;
     private static CollectionReference cRef;
 
-    public UserOperations(Firestore database) {
-        db = database;
+    public UserOperations() {
+        GoogleCredentials credentials = null;
+        try {
+            credentials = GoogleCredentials.getApplicationDefault();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        FirestoreOptions options = FirestoreOptions.newBuilder().setCredentials(credentials).build();
+        Firestore db = options.getService();
         cRef = db.collection(COLLECTION);
     }
 
@@ -41,6 +48,30 @@ public class UserOperations {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public void addUserImg(String username, String imageId)  {
+        List<String> images = getUserImg(username);
+        images.add(imageId);
+        DocumentReference docRef = cRef.document(username);
+        docRef.update("images", images);
+    }
+
+    private List<String> getUserImg(String username){
+        DocumentReference docRef = cRef.document(username);
+        ApiFuture<DocumentSnapshot> future = docRef.get();
+        DocumentSnapshot document  = null;
+        try {
+            document = future.get();
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
+        return  (List<String>) document.get("images");
+    }
+
+    public UserImages listUserImages(String username){
+        List<String> images = getUserImg(username);
+        return UserImages.newBuilder().addAllImageId(images).build();
     }
 
 

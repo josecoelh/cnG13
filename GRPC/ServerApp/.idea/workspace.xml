@@ -1,7 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b69338c1-2800-46b2-aa27-6a70c64be164" name="Default Changelist" comment="" />
+    <list default="true" id="b69338c1-2800-46b2-aa27-6a70c64be164" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../ClientApp/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ClientApp/src/main/java/clientapp/Session.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_api_client_google_api_client_1_30_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_api_gax_httpjson_0_73_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_apis_google_api_services_storage_v1_rev20200326_1_30_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_cloud_google_cloud_core_http_1_93_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_cloud_google_cloud_storage_1_107_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_http_client_google_http_client_appengine_1_34_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_oauth_client_google_oauth_client_1_30_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/serverapp/ImageRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpcContract/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClientApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientApp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClientApp/src/main/java/clientapp/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientApp/src/main/java/clientapp/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClientApp/target/classes/clientapp/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientApp/target/classes/clientapp/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BaseServiceImpl.iml" beforeDir="false" afterPath="$PROJECT_DIR$/BaseServiceImpl.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/serverapp/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serverapp/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/userOperations/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/userOperations/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/userOperations/UserOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/userOperations/UserOperations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/serverapp/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/serverapp/Server.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/userOperations/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/userOperations/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/userOperations/UserOperations.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/userOperations/UserOperations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/rpcContract-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/rpcContract-1.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/src/main/proto/rpcService.proto" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/src/main/proto/rpcService.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/classes/rpcService.proto" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/target/classes/rpcService.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/classes/services/RpcService$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/target/classes/services/RpcService$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/classes/services/RpcService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/target/classes/services/RpcService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/classes/services/SessionId$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/target/classes/services/SessionId$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/classes/services/SessionId$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/target/classes/services/SessionId$Builder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/classes/services/SessionId.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/target/classes/services/SessionId.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/classes/services/SessionIdOrBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/target/classes/services/SessionIdOrBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/classes/services/UserServiceGrpc$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/classes/services/UserServiceGrpc$MethodHandlers.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/classes/services/UserServiceGrpc$UserServiceBaseDescriptorSupplier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/classes/services/UserServiceGrpc$UserServiceBlockingStub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/classes/services/UserServiceGrpc$UserServiceFileDescriptorSupplier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/classes/services/UserServiceGrpc$UserServiceFutureStub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/classes/services/UserServiceGrpc$UserServiceImplBase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/classes/services/UserServiceGrpc$UserServiceMethodDescriptorSupplier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/classes/services/UserServiceGrpc$UserServiceStub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/classes/services/UserServiceGrpc.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/generated-sources/protobuf/grpc-java/services/UserServiceGrpc.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/generated-sources/protobuf/java/services/RpcService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/target/generated-sources/protobuf/java/services/RpcService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/generated-sources/protobuf/java/services/SessionId.java" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/target/generated-sources/protobuf/java/services/SessionId.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/generated-sources/protobuf/java/services/SessionIdOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/target/generated-sources/protobuf/java/services/SessionIdOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/rpcContract-1.0-jar-with-dependencies.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/target/rpcContract-1.0-jar-with-dependencies.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/rpcContract-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/target/rpcContract-1.0.jar" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,11 +70,16 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1a2VgpCs57X7tadWaYcMGTINGyO" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../rpcContract" />
@@ -81,10 +138,46 @@
       <workItem from="1587119282912" duration="30000" />
       <workItem from="1589966773250" duration="7576000" />
       <workItem from="1589974898761" duration="193000" />
+      <workItem from="1589984436745" duration="101000" />
+      <workItem from="1590571788787" duration="9818000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/serverapp/Server.java</url>
+          <line>93</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/serverapp/Server.java</url>
+          <line>101</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/userOperations/UserOperations.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

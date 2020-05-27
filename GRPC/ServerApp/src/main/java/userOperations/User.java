@@ -8,8 +8,12 @@ public class User {
     String username;
      private String accountType;
 
-    public String getAccountType() {
+    String getAccountType() {
         return accountType;
+    }
+
+    public boolean isPremium(){
+        return accountType.equals("Premium");
     }
 
     public User(services.ProtoUser user){

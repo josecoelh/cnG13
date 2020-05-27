@@ -1,13 +1,15 @@
 package clientapp;
 
 
+import com.google.protobuf.ByteString;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
-import io.grpc.stub.StreamObserver;
-import services.ProtoUser;
-import services.SessionId;
-import services.UserServiceGrpc;
+import services.*;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
 import java.util.*;
 
 
@@ -17,12 +19,9 @@ public class Client {
     //private static String svcIP = "35.246.73.129";
     private static int svcPort = 8000;
     private static ManagedChannel channel;
-    private static UserServiceGrpc.UserServiceBlockingStub blockingStub;
-    private static UserServiceGrpc.UserServiceStub noBlockStub;
-    private static SessionId sessionId;
-
-
-
+    private static ServiceGrpc.ServiceBlockingStub blockingStub;
+    private static ServiceGrpc.ServiceStub noBlockStub;
+    private static int INVALID = 100;
 
     public static void main(String[] args) {
         try {
@@ -35,21 +34,24 @@ public class Client {
                     // needing certificates.
                     .usePlaintext()
                     .build();
-            blockingStub = UserServiceGrpc.newBlockingStub(channel);
-            noBlockStub = UserServiceGrpc.newStub(channel);
+            blockingStub = ServiceGrpc.newBlockingStub(channel);
+            noBlockStub = ServiceGrpc.newStub(channel);
+            Session session = new Session(blockingStub);
             do {
                 try {
-                    int option = Menu();
+                    int option = Menu(session);
                     switch (option) {
                         case 0:
-                            login();
+                            session.login();
                             break;
                         case 1:
-                            logOut();
+                            session.logOut();
                             break;
                         case 2:
+                            imageUpload(session.getSession());
                             break;
                         case 3:
+                            listImages(session.getSession());
                             break;
                         case 4:
                             break;
@@ -68,60 +70,67 @@ public class Client {
         }
     }
 
-    static int Menu() {
+    static int Menu(Session session) {
         Scanner scan = new Scanner(System.in);
         int option;
         do {
             System.out.println("######## MENU ##########");
             System.out.println("Options:");
-            System.out.println(" 0: login");
-            System.out.println(" 1: logout");
-            System.out.println(" 2: Delete a field");
-            System.out.println(" 3: Get Documents in parish");
-            System.out.println(" 4: Get Documents with ID greater than a given one, and with a given parish and event");
-            System.out.println("..........");
-            System.out.println("99: Exit");
-            System.out.print("Enter an Option:");
+            if (!session.hasSession())
+                System.out.println(" 0: login");
+            if (session.hasSession()) {
+                System.out.println(" 1: logout");
+                System.out.println(" 2: Upload an image");
+                System.out.println(" 3: List your images");
+                System.out.println(" 4: Get Documents with ID greater than a given one, and with a given parish and event");
+                System.out.println("..........");
+                System.out.println("99: Exit");
+                System.out.print("Enter an Option:");
+            }
             option = scan.nextInt();
+            if (option == 0 && session.hasSession()) option = INVALID;
+            if (option != 0 && option <= 8 && !session.hasSession()) option = INVALID;
         } while (!((option >= 0 && option <= 8) || option == 99));
         return option;
     }
 
-    public static void login(){
-        if(sessionId != null){
-            System.out.println("You are already logged in");
-            return;
-        }
-        boolean terminated = false;
-        do{
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Insert username");
-        String username = scanner.next();
-        System.out.println("Insert your account type (Free/Premium)");
-        String accountType = scanner.next();
-        ProtoUser user = ProtoUser.newBuilder().setUsername(username).setAccountType(accountType).build();
-        sessionId = blockingStub.login(user);
-        if(sessionId.getAlreadyLoggedIn()){
-            System.out.println("This user is already using the system, wait a minute and try again");
-            continue;
-        }
-        if(!sessionId.getCredentials()){
-            System.out.println("Check your input and try again");
-            continue;
-        }
-        terminated = true;
-        }while (!terminated);
-        System.out.println("login successful");
-
+    private static void imageUpload(SessionId sessionId) throws IOException {
+        ImageId res;
+        do {
+            Scanner scanner = new Scanner(System.in);
+            String basePath = new File("").getAbsolutePath();
+            System.out.println(basePath);
+            System.out.println("Place your image on the folder (resources/Image) and insert it's name");
+            String imgName = scanner.next();
+            String path = new File("src/main/resources/Image/" + imgName)
+                    .getAbsolutePath();
+            File image = new File(path);
+            ByteString imageContent = null;
+            try {
+                imageContent = ByteString.copyFrom(Files.readAllBytes(image.toPath()));
+            } catch (NoSuchFileException e) {
+                System.out.println("There is no image with that name on the folder");
+                res = ImageId.newBuilder().setFailed(true).build();
+                continue;
+            }
+            String contentType = Files.probeContentType(image.toPath());
+            Image msg = Image.newBuilder()
+                    .setImage(imageContent)
+                    .setImageName(imgName)
+                    .setContentType(contentType)
+                    .setUser(sessionId)
+                    .build();
+            res = blockingStub.sendImage(msg);
+            if (res.getFailed()) System.out.println(res.getErrorMsg());
+        } while (res.getFailed());
+        System.out.printf("Done! %s uploaded\n",res.getImageId());
     }
 
-    public static void logOut(){
-        if(sessionId == null){
-            System.out.println("You are not logged in");
-            return;
+    private static void listImages(SessionId sessionId){
+        System.out.println("If you just uploaded your image it might take while for it to appear in here");
+        UserImages images = blockingStub.listUserImages(sessionId);
+        for (String imageId:images.getImageIdList()) {
+            System.out.println(imageId);
         }
-        blockingStub.close(sessionId);
-        sessionId = null;
-        System.out.println("Logged out!");
     }
 }
