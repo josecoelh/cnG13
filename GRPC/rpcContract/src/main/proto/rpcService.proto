@@ -12,8 +12,17 @@ service Service {
     rpc close(SessionId) returns (google.protobuf.Empty);
     rpc sendImage(Image) returns (ImageId);
     rpc listUserImages(SessionId) returns (UserImages);
+    rpc requestOCR(OCRequest) returns (OCReply);
 }
 
+message OCRequest{
+    string imageId = 1;
+    SessionId user = 2;
+}
+
+message OCReply{
+    string result = 1;
+}
 message Image{
     bytes image = 1;
     string imageName =2;

@@ -1,21 +1,12 @@
 package serverapp;
 
-import com.google.auth.oauth2.GoogleCredentials;
-import com.google.cloud.firestore.Firestore;
-import com.google.cloud.firestore.FirestoreOptions;
-import com.google.cloud.storage.Storage;
-import com.google.cloud.storage.StorageOptions;
 import com.google.protobuf.Empty;
-import com.sun.org.apache.xalan.internal.xsltc.runtime.Operators;
 import io.grpc.ServerBuilder;
-import io.grpc.stub.ClientCalls;
-import io.grpc.stub.ServerCalls;
 import io.grpc.stub.StreamObserver;
 import services.*;
-import userOperations.User;
-import userOperations.UserOperations;
 
 
+import java.io.IOException;
 import java.util.Scanner;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
@@ -25,8 +16,10 @@ public class Server extends ServiceGrpc.ServiceImplBase {
     private static int svcPort = 8000;
     private static UserOperations userOps;
     private static ImageRepository imgRepo;
+    private static OCRPublisher ocrHandler;
     private static ConcurrentLinkedQueue<String> sessionQueue = new ConcurrentLinkedQueue<>();
     private static final Object monitor = new Object();
+
 
     public static void main(String[] args) {
         try {
@@ -38,6 +31,9 @@ public class Server extends ServiceGrpc.ServiceImplBase {
             svc.start();
             userOps = new UserOperations();
             imgRepo = new ImageRepository();
+            ocrHandler = new OCRPublisher();
+
+
 
 
             System.out.println("Server started, listening on " + svcPort);
@@ -56,8 +52,7 @@ public class Server extends ServiceGrpc.ServiceImplBase {
     @Override
     public void login(ProtoUser protoUser, StreamObserver<SessionId> responseObserver) {
         synchronized (monitor) {
-            User user = new User(protoUser);
-            user = userOps.login(user);
+            ProtoUser user = userOps.login(protoUser);
             SessionId sessionId;
             if (user != null && sessionQueue.contains(user.getUsername())) {
                 responseObserver.onNext(SessionId.newBuilder().setAlreadyLoggedIn(true).build());
@@ -68,7 +63,7 @@ public class Server extends ServiceGrpc.ServiceImplBase {
                 sessionId = SessionId.newBuilder().setCredentials(false).setAlreadyLoggedIn(false).build();
             } else {
                 sessionId = SessionId.newBuilder().setId(user.getUsername())
-                        .setIsPremium(user.isPremium())
+                        .setIsPremium(user.getAccountType().equals("Premium"))
                         .setCredentials(true)
                         .setAlreadyLoggedIn(false).build();
                 sessionQueue.add(user.getUsername());
@@ -98,9 +93,21 @@ public class Server extends ServiceGrpc.ServiceImplBase {
 
     }
 
+    @Override
     public void listUserImages(SessionId request, StreamObserver<UserImages> responseObserver) {
         UserImages userImages = userOps.listUserImages(request.getId());
         responseObserver.onNext(userImages);
+        responseObserver.onCompleted();
+    }
+
+    public void requestOCR(OCRequest request, StreamObserver<OCReply> responseObserver) {
+        OCReply res = null;
+        try {
+            ocrHandler.publishRequest(request);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        responseObserver.onNext(res);
         responseObserver.onCompleted();
     }
 

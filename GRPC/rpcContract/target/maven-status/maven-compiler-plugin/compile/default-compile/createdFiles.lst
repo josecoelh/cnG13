@@ -1,3 +1,5 @@
+services\OCRequest$Builder.class
+services\OCRequestOrBuilder.class
 services\ProtoUser$Builder.class
 services\UserImages.class
 services\UserImagesOrBuilder.class
@@ -12,14 +14,19 @@ services\ServiceGrpc$ServiceStub.class
 services\ProtoUser$1.class
 services\ImageId.class
 services\ServiceGrpc$ServiceMethodDescriptorSupplier.class
+services\OCReply$Builder.class
+services\OCRequest$1.class
 services\RpcService$1.class
 services\Image$1.class
 services\ServiceGrpc$MethodHandlers.class
 services\ServiceGrpc$ServiceImplBase.class
+services\OCReplyOrBuilder.class
 services\UserImages$Builder.class
+services\OCReply.class
 services\ProtoUser.class
 services\RpcService.class
 services\ServiceGrpc$ServiceBaseDescriptorSupplier.class
+services\OCRequest.class
 services\UserImages$1.class
 services\ImageOrBuilder.class
 services\ServiceGrpc$ServiceFutureStub.class
@@ -29,4 +36,5 @@ services\ImageIdOrBuilder.class
 services\ServiceGrpc$1.class
 services\SessionIdOrBuilder.class
 services\SessionId$1.class
+services\OCReply$1.class
 services\Image$Builder.class

@@ -98,7 +98,7 @@ public final class ServiceGrpc {
       fullMethodName = SERVICE_NAME + '/' + "sendImage",
       requestType = services.Image.class,
       responseType = services.ImageId.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+      methodType = io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
   public static io.grpc.MethodDescriptor<services.Image,
       services.ImageId> getSendImageMethod() {
     io.grpc.MethodDescriptor<services.Image, services.ImageId> getSendImageMethod;
@@ -107,7 +107,7 @@ public final class ServiceGrpc {
         if ((getSendImageMethod = ServiceGrpc.getSendImageMethod) == null) {
           ServiceGrpc.getSendImageMethod = getSendImageMethod = 
               io.grpc.MethodDescriptor.<services.Image, services.ImageId>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setType(io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
               .setFullMethodName(generateFullMethodName(
                   "primesservice.Service", "sendImage"))
               .setSampledToLocalTracing(true)
@@ -155,6 +155,38 @@ public final class ServiceGrpc {
      return getListUserImagesMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<services.OCRequest,
+      services.OCReply> getRequestOCRMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "requestOCR",
+      requestType = services.OCRequest.class,
+      responseType = services.OCReply.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<services.OCRequest,
+      services.OCReply> getRequestOCRMethod() {
+    io.grpc.MethodDescriptor<services.OCRequest, services.OCReply> getRequestOCRMethod;
+    if ((getRequestOCRMethod = ServiceGrpc.getRequestOCRMethod) == null) {
+      synchronized (ServiceGrpc.class) {
+        if ((getRequestOCRMethod = ServiceGrpc.getRequestOCRMethod) == null) {
+          ServiceGrpc.getRequestOCRMethod = getRequestOCRMethod = 
+              io.grpc.MethodDescriptor.<services.OCRequest, services.OCReply>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "primesservice.Service", "requestOCR"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  services.OCRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  services.OCReply.getDefaultInstance()))
+                  .setSchemaDescriptor(new ServiceMethodDescriptorSupplier("requestOCR"))
+                  .build();
+          }
+        }
+     }
+     return getRequestOCRMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -198,9 +230,9 @@ public final class ServiceGrpc {
 
     /**
      */
-    public void sendImage(services.Image request,
+    public io.grpc.stub.StreamObserver<services.Image> sendImage(
         io.grpc.stub.StreamObserver<services.ImageId> responseObserver) {
-      asyncUnimplementedUnaryCall(getSendImageMethod(), responseObserver);
+      return asyncUnimplementedStreamingCall(getSendImageMethod(), responseObserver);
     }
 
     /**
@@ -208,6 +240,13 @@ public final class ServiceGrpc {
     public void listUserImages(services.SessionId request,
         io.grpc.stub.StreamObserver<services.UserImages> responseObserver) {
       asyncUnimplementedUnaryCall(getListUserImagesMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void requestOCR(services.OCRequest request,
+        io.grpc.stub.StreamObserver<services.OCReply> responseObserver) {
+      asyncUnimplementedUnaryCall(getRequestOCRMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
@@ -228,7 +267,7 @@ public final class ServiceGrpc {
                   this, METHODID_CLOSE)))
           .addMethod(
             getSendImageMethod(),
-            asyncUnaryCall(
+            asyncBidiStreamingCall(
               new MethodHandlers<
                 services.Image,
                 services.ImageId>(
@@ -240,6 +279,13 @@ public final class ServiceGrpc {
                 services.SessionId,
                 services.UserImages>(
                   this, METHODID_LIST_USER_IMAGES)))
+          .addMethod(
+            getRequestOCRMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                services.OCRequest,
+                services.OCReply>(
+                  this, METHODID_REQUEST_OCR)))
           .build();
     }
   }
@@ -280,10 +326,10 @@ public final class ServiceGrpc {
 
     /**
      */
-    public void sendImage(services.Image request,
+    public io.grpc.stub.StreamObserver<services.Image> sendImage(
         io.grpc.stub.StreamObserver<services.ImageId> responseObserver) {
-      asyncUnaryCall(
-          getChannel().newCall(getSendImageMethod(), getCallOptions()), request, responseObserver);
+      return asyncBidiStreamingCall(
+          getChannel().newCall(getSendImageMethod(), getCallOptions()), responseObserver);
     }
 
     /**
@@ -292,6 +338,14 @@ public final class ServiceGrpc {
         io.grpc.stub.StreamObserver<services.UserImages> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getListUserImagesMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void requestOCR(services.OCRequest request,
+        io.grpc.stub.StreamObserver<services.OCReply> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getRequestOCRMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -329,16 +383,16 @@ public final class ServiceGrpc {
 
     /**
      */
-    public services.ImageId sendImage(services.Image request) {
+    public services.UserImages listUserImages(services.SessionId request) {
       return blockingUnaryCall(
-          getChannel(), getSendImageMethod(), getCallOptions(), request);
+          getChannel(), getListUserImagesMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public services.UserImages listUserImages(services.SessionId request) {
+    public services.OCReply requestOCR(services.OCRequest request) {
       return blockingUnaryCall(
-          getChannel(), getListUserImagesMethod(), getCallOptions(), request);
+          getChannel(), getRequestOCRMethod(), getCallOptions(), request);
     }
   }
 
@@ -378,25 +432,26 @@ public final class ServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<services.ImageId> sendImage(
-        services.Image request) {
-      return futureUnaryCall(
-          getChannel().newCall(getSendImageMethod(), getCallOptions()), request);
-    }
-
-    /**
-     */
     public com.google.common.util.concurrent.ListenableFuture<services.UserImages> listUserImages(
         services.SessionId request) {
       return futureUnaryCall(
           getChannel().newCall(getListUserImagesMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<services.OCReply> requestOCR(
+        services.OCRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getRequestOCRMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_LOGIN = 0;
   private static final int METHODID_CLOSE = 1;
-  private static final int METHODID_SEND_IMAGE = 2;
-  private static final int METHODID_LIST_USER_IMAGES = 3;
+  private static final int METHODID_LIST_USER_IMAGES = 2;
+  private static final int METHODID_REQUEST_OCR = 3;
+  private static final int METHODID_SEND_IMAGE = 4;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -423,13 +478,13 @@ public final class ServiceGrpc {
           serviceImpl.close((services.SessionId) request,
               (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
           break;
-        case METHODID_SEND_IMAGE:
-          serviceImpl.sendImage((services.Image) request,
-              (io.grpc.stub.StreamObserver<services.ImageId>) responseObserver);
-          break;
         case METHODID_LIST_USER_IMAGES:
           serviceImpl.listUserImages((services.SessionId) request,
               (io.grpc.stub.StreamObserver<services.UserImages>) responseObserver);
+          break;
+        case METHODID_REQUEST_OCR:
+          serviceImpl.requestOCR((services.OCRequest) request,
+              (io.grpc.stub.StreamObserver<services.OCReply>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -441,6 +496,9 @@ public final class ServiceGrpc {
     public io.grpc.stub.StreamObserver<Req> invoke(
         io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
+        case METHODID_SEND_IMAGE:
+          return (io.grpc.stub.StreamObserver<Req>) serviceImpl.sendImage(
+              (io.grpc.stub.StreamObserver<services.ImageId>) responseObserver);
         default:
           throw new AssertionError();
       }
@@ -496,6 +554,7 @@ public final class ServiceGrpc {
               .addMethod(getCloseMethod())
               .addMethod(getSendImageMethod())
               .addMethod(getListUserImagesMethod())
+              .addMethod(getRequestOCRMethod())
               .build();
         }
       }

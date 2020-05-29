@@ -4,10 +4,10 @@ package clientapp;
 import com.google.protobuf.ByteString;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
+import io.grpc.stub.StreamObserver;
 import services.*;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
 import java.util.*;
@@ -54,6 +54,7 @@ public class Client {
                             listImages(session.getSession());
                             break;
                         case 4:
+                            requestOCR(session.getSession());
                             break;
                         case 99:
                             System.exit(0);
@@ -82,7 +83,7 @@ public class Client {
                 System.out.println(" 1: logout");
                 System.out.println(" 2: Upload an image");
                 System.out.println(" 3: List your images");
-                System.out.println(" 4: Get Documents with ID greater than a given one, and with a given parish and event");
+                System.out.println(" 4: Request an OCR");
                 System.out.println("..........");
                 System.out.println("99: Exit");
                 System.out.print("Enter an Option:");
@@ -98,10 +99,8 @@ public class Client {
         ImageId res;
         do {
             Scanner scanner = new Scanner(System.in);
-            String basePath = new File("").getAbsolutePath();
-            System.out.println(basePath);
             System.out.println("Place your image on the folder (resources/Image) and insert it's name");
-            String imgName = scanner.next();
+            String imgName = scanner.nextLine();
             String path = new File("src/main/resources/Image/" + imgName)
                     .getAbsolutePath();
             File image = new File(path);
@@ -132,5 +131,41 @@ public class Client {
         for (String imageId:images.getImageIdList()) {
             System.out.println(imageId);
         }
+    }
+
+
+    private static void requestOCR(SessionId sessionId){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Insert the image name for the OCR");
+        String name = scanner.nextLine();
+        OCRequest req = OCRequest.newBuilder().setImageId(name).setUser(sessionId).build();
+        noBlockStub.requestOCR(req, new StreamObserver<OCReply>() {
+            boolean isCompleted= false;
+            @Override
+            public void onNext(OCReply value) {
+                String path = new File("src/main/resources/OCRResults/" + name+".txt")
+                        .getAbsolutePath();
+                File log = new File(path);
+
+                try {
+                    FileWriter fw = new FileWriter(path);
+                    fw.write(String.format("Result : %s",value.getResult()));
+                    fw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onError(Throwable t) {
+
+            }
+
+            @Override
+            public void onCompleted() {
+                System.out.println("Check resources/OCRResults for your result");
+                isCompleted = true;
+            }
+        });
     }
 }
