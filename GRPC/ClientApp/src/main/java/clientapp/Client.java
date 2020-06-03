@@ -2,6 +2,7 @@ package clientapp;
 
 
 import com.google.protobuf.ByteString;
+import com.google.protobuf.Empty;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.stub.StreamObserver;
@@ -84,6 +85,7 @@ public class Client {
                 System.out.println(" 2: Upload an image");
                 System.out.println(" 3: List your images");
                 System.out.println(" 4: Request an OCR");
+                System.out.println(" 5: Request an OCR Result");
                 System.out.println("..........");
                 System.out.println("99: Exit");
                 System.out.print("Enter an Option:");
@@ -139,33 +141,31 @@ public class Client {
         System.out.println("Insert the image name for the OCR");
         String name = scanner.nextLine();
         OCRequest req = OCRequest.newBuilder().setImageId(name).setUser(sessionId).build();
-        noBlockStub.requestOCR(req, new StreamObserver<OCReply>() {
-            boolean isCompleted= false;
-            @Override
-            public void onNext(OCReply value) {
-                String path = new File("src/main/resources/OCRResults/" + name+".txt")
-                        .getAbsolutePath();
-                File log = new File(path);
-
-                try {
-                    FileWriter fw = new FileWriter(path);
-                    fw.write(String.format("Result : %s",value.getResult()));
-                    fw.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-
-            @Override
-            public void onError(Throwable t) {
-
-            }
-
-            @Override
-            public void onCompleted() {
-                System.out.println("Check resources/OCRResults for your result");
-                isCompleted = true;
-            }
-        });
+        blockingStub.requestOCR(req);
     }
+
+    private static void requestOCResult(SessionId sessionId){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Insert the image name for the OCR");
+        String image = scanner.nextLine();
+        OCRequest req = OCRequest.newBuilder().setImageId(image).setUser(sessionId).build();
+        OCReply result = blockingStub.requestOCResult(req);
+        writeResult(image,result.getResult());
+    }
+
+
+    private static void writeResult(String imageName, String result){
+            String path = new File("src/main/resources/OCRResults/" + imageName+".txt")
+                    .getAbsolutePath();
+            try {
+                FileWriter fw = new FileWriter(path);
+                fw.write(String.format("Result : %s",result));
+                fw.close();
+                System.out.println("Check resources/OCRResults for your result\n");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
 }
+

@@ -12,7 +12,8 @@ service Service {
     rpc close(SessionId) returns (google.protobuf.Empty);
     rpc sendImage(Image) returns (ImageId);
     rpc listUserImages(SessionId) returns (UserImages);
-    rpc requestOCR(OCRequest) returns (OCReply);
+    rpc requestOCR(OCRequest) returns (google.protobuf.Empty);
+    rpc requestOCResult(OCRequest) returns(OCReply);
 }
 
 message OCRequest{

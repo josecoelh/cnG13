@@ -58,6 +58,13 @@ public class UserOperations {
         docRef.update("images", images);
     }
 
+    public void removeUserImg(String username, String imageId)  {
+        List<String> images = getUserImg(username);
+        images.remove(imageId);
+        DocumentReference docRef = cRef.document(username);
+        docRef.update("images", images);
+    }
+
     private List<String> getUserImg(String username){
         DocumentReference docRef = cRef.document(username);
         ApiFuture<DocumentSnapshot> future = docRef.get();

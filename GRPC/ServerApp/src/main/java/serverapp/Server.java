@@ -100,15 +100,24 @@ public class Server extends ServiceGrpc.ServiceImplBase {
         responseObserver.onCompleted();
     }
 
-    public void requestOCR(OCRequest request, StreamObserver<OCReply> responseObserver) {
-        OCReply res = null;
+    @Override
+    public void requestOCR(OCRequest request, StreamObserver<Empty> responseObserver) {
         try {
+            userOps.removeUserImg(request.getUser().getId(),request.getImageId());
             ocrHandler.publishRequest(request);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        responseObserver.onNext(res);
+        responseObserver.onNext(Empty.newBuilder().build());
         responseObserver.onCompleted();
     }
+
+    public void requestOCResult(OCRequest request, StreamObserver<OCReply> responseObserver) {
+        String res = ResultDB.getText(request.getImageId());
+        OCReply reply = OCReply.newBuilder().setResult(res).build();
+        responseObserver.onNext(reply);
+        responseObserver.onCompleted();
+    }
+
 
 }

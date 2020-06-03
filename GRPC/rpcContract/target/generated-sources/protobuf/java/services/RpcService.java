@@ -70,16 +70,17 @@ public final class RpcService {
       "ProtoUser\022\020\n\010username\030\001 \001(\t\022\023\n\013accountTy" +
       "pe\030\002 \001(\t\"X\n\tSessionId\022\n\n\002id\030\001 \001(\t\022\021\n\tisP" +
       "remium\030\002 \001(\010\022\023\n\013credentials\030\003 \001(\010\022\027\n\017alr" +
-      "eadyLoggedIn\030\004 \001(\0102\307\002\n\007Service\022;\n\005login\022" +
+      "eadyLoggedIn\030\004 \001(\0102\210\003\n\007Service\022;\n\005login\022" +
       "\030.primesservice.ProtoUser\032\030.primesservic" +
       "e.SessionId\0229\n\005close\022\030.primesservice.Ses" +
-      "sionId\032\026.google.protobuf.Empty\022=\n\tsendIm" +
+      "sionId\032\026.google.protobuf.Empty\0229\n\tsendIm" +
       "age\022\024.primesservice.Image\032\026.primesservic" +
-      "e.ImageId(\0010\001\022E\n\016listUserImages\022\030.primes" +
-      "service.SessionId\032\031.primesservice.UserIm" +
-      "ages\022>\n\nrequestOCR\022\030.primesservice.OCReq" +
-      "uest\032\026.primesservice.OCReplyB\014\n\010services" +
-      "P\001b\006proto3"
+      "e.ImageId\022E\n\016listUserImages\022\030.primesserv" +
+      "ice.SessionId\032\031.primesservice.UserImages" +
+      "\022>\n\nrequestOCR\022\030.primesservice.OCRequest" +
+      "\032\026.google.protobuf.Empty\022C\n\017requestOCRes" +
+      "ult\022\030.primesservice.OCRequest\032\026.primesse" +
+      "rvice.OCReplyB\014\n\010servicesP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

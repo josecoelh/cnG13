@@ -2,26 +2,96 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a2215a9-6b44-4650-af3c-07a9333d9794" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../ClientApp/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ClientApp/src/main/java/clientapp/OCRObserver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ServerApp/.idea/libraries/Maven__com_google_api_grpc_proto_google_cloud_pubsub_v1_1_87_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ServerApp/.idea/libraries/Maven__com_google_cloud_google_cloud_pubsub_1_105_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ServerApp/src/main/java/serverapp/OCRPublisher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ServerApp/src/main/java/serverapp/ResultDB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_10_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__com_google_android_annotations_4_1_1_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__com_google_api_api_common_1_9_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__com_google_api_client_google_api_client_1_30_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__com_google_api_gax_1_56_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__com_google_api_gax_grpc_1_56_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__com_google_api_gax_httpjson_0_73_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__com_google_api_grpc_proto_google_cloud_firestore_admin_v1_1_33_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__com_google_api_grpc_proto_google_cloud_firestore_v1_1_33_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__com_google_api_grpc_proto_google_cloud_firestore_v1beta1_0_86_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__com_google_api_grpc_proto_google_cloud_pubsub_v1_1_87_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__com_google_api_grpc_proto_google_cloud_vision_v1_1_81_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__com_google_api_grpc_proto_google_cloud_vision_v1p1beta1_0_82_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__com_google_api_grpc_proto_google_cloud_vision_v1p2beta1_1_81_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__com_google_api_grpc_proto_google_cloud_vision_v1p3beta1_0_82_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__com_google_api_grpc_proto_google_cloud_vision_v1p4beta1_0_82_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__com_google_api_grpc_proto_google_common_protos_1_17_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__com_google_api_grpc_proto_google_iam_v1_0_13_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__com_google_apis_google_api_services_storage_v1_rev20200326_1_30_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__com_google_auth_google_auth_library_credentials_0_20_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__com_google_auth_google_auth_library_oauth2_http_0_20_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__com_google_auto_value_auto_value_annotations_1_7.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__com_google_cloud_google_cloud_core_1_93_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__com_google_cloud_google_cloud_core_grpc_1_93_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__com_google_cloud_google_cloud_core_http_1_93_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__com_google_cloud_google_cloud_firestore_1_33_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__com_google_cloud_google_cloud_pubsub_1_105_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__com_google_cloud_google_cloud_storage_1_107_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__com_google_cloud_google_cloud_vision_1_99_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__com_google_code_findbugs_jsr305_3_0_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__com_google_code_gson_gson_2_8_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__com_google_errorprone_error_prone_annotations_2_3_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__com_google_guava_failureaccess_1_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__com_google_guava_guava_28_2_android.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__com_google_guava_listenablefuture_9999_0_empty_to_avoid_conflict_with_guava.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__com_google_http_client_google_http_client_1_34_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__com_google_http_client_google_http_client_appengine_1_34_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__com_google_http_client_google_http_client_jackson2_1_34_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__com_google_j2objc_j2objc_annotations_1_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__com_google_oauth_client_google_oauth_client_1_30_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__com_google_protobuf_protobuf_java_3_11_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__com_google_protobuf_protobuf_java_util_3_11_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__commons_codec_commons_codec_1_11.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__io_grpc_grpc_alts_1_28_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__io_grpc_grpc_api_1_28_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__io_grpc_grpc_auth_1_28_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__io_grpc_grpc_context_1_28_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__io_grpc_grpc_core_1_28_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__io_grpc_grpc_grpclb_1_28_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__io_grpc_grpc_netty_shaded_1_28_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__io_grpc_grpc_protobuf_1_28_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__io_grpc_grpc_protobuf_lite_1_28_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__io_grpc_grpc_stub_1_28_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__io_opencensus_opencensus_api_0_24_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__io_opencensus_opencensus_contrib_grpc_util_0_24_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__io_opencensus_opencensus_contrib_http_util_0_24_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__io_perfmark_perfmark_api_0_19_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__javax_annotation_javax_annotation_api_1_3_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5_11.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__org_checkerframework_checker_compat_qual_2_5_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__org_codehaus_mojo_animal_sniffer_annotations_1_18.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__org_conscrypt_conscrypt_openjdk_uber_2_2_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/libraries/Maven__org_threeten_threetenbp_1_4_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/G13-CN.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../VM_OCR/src/main/java/ResultDB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ClientApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientApp/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ClientApp/src/main/java/clientapp/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientApp/src/main/java/clientapp/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ClientApp/src/main/resources/Image/img.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientApp/src/main/resources/Image/img3.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ClientApp/target/classes/Image/img2.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClientApp/src/main/resources/OCRResults/img2.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClientApp/src/main/resources/OCRResults/img3.JPG.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClientApp/target/classes/Image/img.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClientApp/target/classes/OCRResults/img2.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClientApp/target/classes/clientapp/Client$1.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../ClientApp/target/classes/clientapp/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientApp/target/classes/clientapp/Client.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ServerApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ServerApp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ServerApp/BaseServiceImpl.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../ServerApp/BaseServiceImpl.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ServerApp/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ServerApp/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ServerApp/src/main/java/serverapp/ImageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ServerApp/src/main/java/serverapp/ImageRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ServerApp/src/main/java/serverapp/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ServerApp/src/main/java/serverapp/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ServerApp/src/main/java/userOperations/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ServerApp/src/main/java/userOperations/UserOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ServerApp/src/main/java/serverapp/UserOperations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerApp/src/main/java/serverapp/UserOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ServerApp/src/main/java/serverapp/UserOperations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerApp/target/classes/serverapp/ImageRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ServerApp/target/classes/serverapp/ImageRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerApp/target/classes/serverapp/OCRHandler.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../ServerApp/target/classes/serverapp/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ServerApp/target/classes/serverapp/Server.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ServerApp/target/classes/userOperations/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ServerApp/target/classes/userOperations/UserOperations.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../lib/rpcContract-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/rpcContract-1.0.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/proto/rpcService.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/proto/rpcService.proto" afterDir="false" />
@@ -39,7 +109,6 @@
       <change beforePath="$PROJECT_DIR$/target/classes/services/ServiceGrpc.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/ServiceGrpc.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/generated-sources/protobuf/grpc-java/services/ServiceGrpc.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/protobuf/grpc-java/services/ServiceGrpc.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/generated-sources/protobuf/java/services/RpcService.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/protobuf/java/services/RpcService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/rpcContract-1.0-jar-with-dependencies.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/rpcContract-1.0-jar-with-dependencies.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/rpcContract-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/rpcContract-1.0.jar" afterDir="false" />
     </list>
@@ -78,7 +147,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ServerApp" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -110,6 +179,7 @@
       <workItem from="1589974888930" duration="8000" />
       <workItem from="1590571798393" duration="7310000" />
       <workItem from="1590742418161" duration="4792000" />
+      <workItem from="1591196116915" duration="1834000" />
     </task>
     <servers />
   </component>

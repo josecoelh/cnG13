@@ -10,9 +10,10 @@ package primesservice; // package do proto
 service Service {
     rpc login(ProtoUser) returns (SessionId);
     rpc close(SessionId) returns (google.protobuf.Empty);
-    rpc sendImage(stream Image) returns (stream ImageId);
+    rpc sendImage(Image) returns (ImageId);
     rpc listUserImages(SessionId) returns (UserImages);
-    rpc requestOCR(OCRequest) returns (OCReply);
+    rpc requestOCR(OCRequest) returns (google.protobuf.Empty);
+    rpc requestOCResult(OCRequest) returns(OCReply);
 }
 
 message OCRequest{
