@@ -1,6 +1,7 @@
 import com.google.cloud.pubsub.v1.AckReplyConsumer;
 import com.google.cloud.pubsub.v1.MessageReceiver;
 import com.google.cloud.pubsub.v1.Subscriber;
+import com.google.cloud.vision.v1.EntityAnnotation;
 import com.google.protobuf.ByteString;
 import com.google.pubsub.v1.ProjectSubscriptionName;
 import com.google.pubsub.v1.PubsubMessage;
@@ -16,30 +17,22 @@ public class OCRSubscriber {
     final static String FREE_TOPIC = "free-ocr", PREMIUM_TOPIC = "premium-ocr";
 
 
-    static void freeSub(){
-        ProjectSubscriptionName projsubscriptionName =
-                ProjectSubscriptionName.of(PROJECT_ID, FREE_TOPIC);
+    static void sub(boolean isPremium){
+        String topic = isPremium? PREMIUM_TOPIC : FREE_TOPIC;
+        ProjectSubscriptionName projSubscriptionName =
+                ProjectSubscriptionName.of(PROJECT_ID, topic);
         Subscriber subscriber =
-                Subscriber.newBuilder(projsubscriptionName,
-                        new MessageReceiveHandler(false))
+                Subscriber.newBuilder(projSubscriptionName,
+                        new MessageReceiveHandler(isPremium))
                         .build();
         subscriber.startAsync().awaitRunning();
         while (true);
     }
 
-    static void premiumSub(){
-        ProjectSubscriptionName projsubscriptionName =
-                ProjectSubscriptionName.of(PROJECT_ID, PREMIUM_TOPIC);
-        Subscriber subscriber =
-                Subscriber.newBuilder(projsubscriptionName,
-                        new MessageReceiveHandler(true))
-                        .build();
-        subscriber.startAsync().awaitRunning();
-    }
 
     private static class MessageReceiveHandler implements MessageReceiver {
 
-        public MessageReceiveHandler(boolean isPremium) {
+        MessageReceiveHandler(boolean isPremium) {
             this.isPremium = isPremium;
         }
 
@@ -50,18 +43,15 @@ public class OCRSubscriber {
                 String imageName = msg.getData().toStringUtf8();
                 ByteString content = ImageRepository.downloadImage(imageName);
                 if(content == null) throw new NullPointerException();
-                String text = Vision.detectText(content);
+                EntityAnnotation text = Vision.detectText(content);
                 ResultDB.putText(imageName,text);
                 ImageRepository.deleteImage(imageName);
-            } catch (IOException e) {
+                TranslatePublisher.publishRequest(text,imageName,isPremium);
+            } catch (IOException | InterruptedException | ExecutionException e) {
                 e.printStackTrace();
             }
             catch (NullPointerException e){
                 System.out.println("Image not present");
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            } catch (ExecutionException e) {
-                e.printStackTrace();
             } finally {
                 ackReply.ack();
             }

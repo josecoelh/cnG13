@@ -2,16 +2,14 @@ import com.google.cloud.vision.v1.*;
 import com.google.cloud.vision.v1.Image;
 import com.google.protobuf.ByteString;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Vision {
 
 
-    public static String detectText(ByteString imgBytes)  {
+    public static EntityAnnotation detectText(ByteString imgBytes)  {
 
         List<AnnotateImageRequest> requests = new ArrayList<>();
         Image img = Image.newBuilder().setContent(imgBytes).build();
@@ -25,17 +23,12 @@ public class Vision {
 
             for (AnnotateImageResponse res : responses) {
                 if (res.hasError()) {
-                    return String.format("Error: %s\n", res.getError().getMessage());
+                    throw new Exception(String.format("Error: %s\n", res.getError().getMessage()));
                 }
-
-                // For full list of available annotations, see http://g.co/cloud/vision/docs
-                /*for (EntityAnnotation annotation : res.getTextAnnotationsList()) {
-                    toRet.add(String.format("Text: %s\n", annotation.getDescription()));
-                }*/
-                return res.getTextAnnotationsList().get(0).getDescription();
+                return res.getTextAnnotationsList().get(0);
 
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;

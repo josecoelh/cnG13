@@ -1,5 +1,6 @@
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.firestore.*;
+import com.google.cloud.vision.v1.EntityAnnotation;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -23,10 +24,10 @@ public class ResultDB {
     }
 
 
-     static void putText(String image, String text) throws ExecutionException, InterruptedException {
+     static void putText(String image, EntityAnnotation text) throws ExecutionException, InterruptedException {
         DocumentReference dRef = cRef.document(image);
          HashMap<String, Object> map = new HashMap<String, Object>();
-         map.put("Text",text);
+         map.put(text.getLocale(),text.getDescription());
          dRef.set(map);
     }
 
