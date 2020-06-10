@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 public class ResultDB {
-    private final static String COLLECTION = "OCR";
+    private final static String COLLECTION = "Users", SUB_COLLECTION = "OCR";
     private static GoogleCredentials credentials;
     private static CollectionReference cRef;
 
@@ -26,19 +26,23 @@ public class ResultDB {
         }
     }
 
-
-    static String getText(String image) {
-        DocumentReference docRef = cRef.document(image);
-        ApiFuture<DocumentSnapshot> future = docRef.get();
+    static String getText(String image, String user, String desiredLang) {
+        DocumentReference uRef = cRef.document(user);
+        CollectionReference ocrCollection = uRef.collection(SUB_COLLECTION);
+        DocumentReference dRef = ocrCollection.document(image);
+        ApiFuture<DocumentSnapshot> future = dRef.get();
         DocumentSnapshot document = null;
         try {
-            if (!document.exists()) return "Result not Ready try again later :p";
             document = future.get();
+            if (!document.exists()) return null;
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }
-        return (String) document.get("Text");
+        return (String) document.get(desiredLang == null ? "Original" : desiredLang);
     }
+
+
+
 }
 
 

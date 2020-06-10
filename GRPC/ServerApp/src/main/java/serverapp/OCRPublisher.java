@@ -22,6 +22,7 @@ public class OCRPublisher {
         ByteString msgData = ByteString.copyFromUtf8(req.getImageId());
         PubsubMessage pubsubMessage = PubsubMessage.newBuilder()
                 .setData(msgData)
+                .putAttributes("user",req.getUser().getId())
                 .build();
         publisher.publish(pubsubMessage);
         publisher.shutdown();

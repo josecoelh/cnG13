@@ -1,0 +1,31 @@
+Result : Trabalho final
+Data final de entrega do trabalho: 20 de junho 2020
+Para além do trabalho que cada grupo realizará autonomamente, haverá aulas específicas para
+apoio à realização do trabalho.
+Componentes a entregar:
+1) Ficheiro ZIP com as componentes desenvolvidas, incluindo ficheiros README com
+informações sobre configurações, pressupostos de execução, testes etc.
+2) Documento em formato PDF com descrição da solução: Diagramas de arquitetura e de
+interação entre as partes envolvidas; protocolos de aplicação e formatos de dados envolvidos
+nas interações, bem como os aspectos relevantes da implementação, nomeadamente o
+processo de garantia e controlo da elasticidade de processamento e eventuais pontos de falha.
+Objetivos: Saber planear e realizar um sistema para submissão e execução de tarefas, com
+requisitos de elasticidade, utilizando de forma integrada serviços da Google Cloud Platform de
+armazenamento e de comunicação, nomeadamente, Storage, Firestore e Pub/Sub, e o serviço de
+computação, Compute engine.
+Result : Trabalho final
+Data final de entrega do trabalho: 20 de junho 2020
+Para além do trabalho que cada grupo realizará autonomamente, haverá aulas específicas para
+apoio à realização do trabalho.
+Componentes a entregar:
+1) Ficheiro ZIP com as componentes desenvolvidas, incluindo ficheiros README com
+informações sobre configurações, pressupostos de execução, testes etc.
+2) Documento em formato PDF com descrição da solução: Diagramas de arquitetura e de
+interação entre as partes envolvidas; protocolos de aplicação e formatos de dados envolvidos
+nas interações, bem como os aspectos relevantes da implementação, nomeadamente o
+processo de garantia e controlo da elasticidade de processamento e eventuais pontos de falha.
+Objetivos: Saber planear e realizar um sistema para submissão e execução de tarefas, com
+requisitos de elasticidade, utilizando de forma integrada serviços da Google Cloud Platform de
+armazenamento e de comunicação, nomeadamente, Storage, Firestore e Pub/Sub, e o serviço de
+computação, Compute engine.
+it : Lavoro finale Data finale per la consegna del lavoro: 20 giugno 2020 Oltre al lavoro che ciascun gruppo svolgerà autonomamente, ci saranno classi specifiche a supporto del lavoro. Componenti da consegnare: 1) File ZIP con i componenti sviluppati, inclusi i file README con informazioni su configurazioni, ipotesi di esecuzione, test ecc. 2) Documento in formato PDF con descrizione della soluzione: architettura e diagrammi di interazione tra le parti coinvolte; protocolli applicativi e formati di dati coinvolti nelle interazioni, nonché gli aspetti rilevanti dell&#39;implementazione, vale a dire il processo di garanzia e controllo dell&#39;elasticità del trattamento e dei possibili punti di errore. Obiettivi: sapere come pianificare ed eseguire un sistema per l&#39;invio e l&#39;esecuzione di attività, con requisiti di elasticità, utilizzando i servizi di Google Cloud Platform per l&#39;archiviazione e la comunicazione, vale a dire Storage, Firestore e Pub / Sub, e il servizio informatico , Motore di calcolo.

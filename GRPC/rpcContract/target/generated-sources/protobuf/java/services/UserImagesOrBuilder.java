@@ -41,4 +41,14 @@ public interface UserImagesOrBuilder extends
    */
   com.google.protobuf.ByteString
       getImageIdBytes(int index);
+
+  /**
+   * <code>string errorMsg = 2;</code>
+   */
+  java.lang.String getErrorMsg();
+  /**
+   * <code>string errorMsg = 2;</code>
+   */
+  com.google.protobuf.ByteString
+      getErrorMsgBytes();
 }

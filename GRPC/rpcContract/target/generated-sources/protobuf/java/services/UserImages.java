@@ -17,6 +17,7 @@ private static final long serialVersionUID = 0L;
   }
   private UserImages() {
     imageId_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    errorMsg_ = "";
   }
 
   @java.lang.Override
@@ -59,6 +60,12 @@ private static final long serialVersionUID = 0L;
             imageId_.add(s);
             break;
           }
+          case 18: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            errorMsg_ = s;
+            break;
+          }
         }
       }
     } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -86,6 +93,7 @@ private static final long serialVersionUID = 0L;
             services.UserImages.class, services.UserImages.Builder.class);
   }
 
+  private int bitField0_;
   public static final int IMAGEID_FIELD_NUMBER = 1;
   private com.google.protobuf.LazyStringList imageId_;
   /**
@@ -131,6 +139,40 @@ private static final long serialVersionUID = 0L;
     return imageId_.getByteString(index);
   }
 
+  public static final int ERRORMSG_FIELD_NUMBER = 2;
+  private volatile java.lang.Object errorMsg_;
+  /**
+   * <code>string errorMsg = 2;</code>
+   */
+  public java.lang.String getErrorMsg() {
+    java.lang.Object ref = errorMsg_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      errorMsg_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string errorMsg = 2;</code>
+   */
+  public com.google.protobuf.ByteString
+      getErrorMsgBytes() {
+    java.lang.Object ref = errorMsg_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      errorMsg_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
@@ -145,6 +187,9 @@ private static final long serialVersionUID = 0L;
                       throws java.io.IOException {
     for (int i = 0; i < imageId_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, imageId_.getRaw(i));
+    }
+    if (!getErrorMsgBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, errorMsg_);
     }
     unknownFields.writeTo(output);
   }
@@ -161,6 +206,9 @@ private static final long serialVersionUID = 0L;
       }
       size += dataSize;
       size += 1 * getImageIdList().size();
+    }
+    if (!getErrorMsgBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, errorMsg_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -180,6 +228,8 @@ private static final long serialVersionUID = 0L;
     boolean result = true;
     result = result && getImageIdList()
         .equals(other.getImageIdList());
+    result = result && getErrorMsg()
+        .equals(other.getErrorMsg());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -195,6 +245,8 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + IMAGEID_FIELD_NUMBER;
       hash = (53 * hash) + getImageIdList().hashCode();
     }
+    hash = (37 * hash) + ERRORMSG_FIELD_NUMBER;
+    hash = (53 * hash) + getErrorMsg().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -326,6 +378,8 @@ private static final long serialVersionUID = 0L;
       super.clear();
       imageId_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000001);
+      errorMsg_ = "";
+
       return this;
     }
 
@@ -349,11 +403,14 @@ private static final long serialVersionUID = 0L;
     public services.UserImages buildPartial() {
       services.UserImages result = new services.UserImages(this);
       int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         imageId_ = imageId_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000001);
       }
       result.imageId_ = imageId_;
+      result.errorMsg_ = errorMsg_;
+      result.bitField0_ = to_bitField0_;
       onBuilt();
       return result;
     }
@@ -403,6 +460,10 @@ private static final long serialVersionUID = 0L;
           ensureImageIdIsMutable();
           imageId_.addAll(other.imageId_);
         }
+        onChanged();
+      }
+      if (!other.getErrorMsg().isEmpty()) {
+        errorMsg_ = other.errorMsg_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -559,6 +620,75 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       ensureImageIdIsMutable();
       imageId_.add(value);
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object errorMsg_ = "";
+    /**
+     * <code>string errorMsg = 2;</code>
+     */
+    public java.lang.String getErrorMsg() {
+      java.lang.Object ref = errorMsg_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        errorMsg_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string errorMsg = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getErrorMsgBytes() {
+      java.lang.Object ref = errorMsg_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        errorMsg_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string errorMsg = 2;</code>
+     */
+    public Builder setErrorMsg(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      errorMsg_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string errorMsg = 2;</code>
+     */
+    public Builder clearErrorMsg() {
+      
+      errorMsg_ = getDefaultInstance().getErrorMsg();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string errorMsg = 2;</code>
+     */
+    public Builder setErrorMsgBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      errorMsg_ = value;
       onChanged();
       return this;
     }

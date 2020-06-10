@@ -6,14 +6,14 @@ import java.util.concurrent.ExecutionException;
 
 
 public class Translator {
-    static Translate translate = TranslateOptions.getDefaultInstance().getService();
+    private static Translate translate = TranslateOptions.getDefaultInstance().getService();
 
-    static void translate(String imageName, String text, String currentLang) throws ExecutionException, InterruptedException {
+    static void translate(String user, String imageName, String text, String currentLang) throws ExecutionException, InterruptedException {
         List<Language> languages = translate.listSupportedLanguages();
-
+        ResultDB resultDB = new ResultDB(user);
         for (Language language : languages) {
             String translated = translateText(text, currentLang, language.getCode());
-            ResultDB.putText(imageName, language.getName(), translated);
+            resultDB.putText(imageName, language.getCode(), translated);
         }
     }
 

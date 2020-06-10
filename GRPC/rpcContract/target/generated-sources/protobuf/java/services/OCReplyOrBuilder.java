@@ -16,4 +16,19 @@ public interface OCReplyOrBuilder extends
    */
   com.google.protobuf.ByteString
       getResultBytes();
+
+  /**
+   * <code>bool failed = 2;</code>
+   */
+  boolean getFailed();
+
+  /**
+   * <code>string errorMsg = 3;</code>
+   */
+  java.lang.String getErrorMsg();
+  /**
+   * <code>string errorMsg = 3;</code>
+   */
+  com.google.protobuf.ByteString
+      getErrorMsgBytes();
 }

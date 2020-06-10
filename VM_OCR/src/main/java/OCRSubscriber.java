@@ -41,12 +41,13 @@ public class OCRSubscriber {
         public void receiveMessage(PubsubMessage msg, AckReplyConsumer ackReply) {
             try {
                 String imageName = msg.getData().toStringUtf8();
+                String user = msg.getAttributesOrDefault("user",null);
                 ByteString content = ImageRepository.downloadImage(imageName);
                 if(content == null) throw new NullPointerException();
                 EntityAnnotation text = Vision.detectText(content);
-                ResultDB.putText(imageName,text);
+                ResultDB.putText(imageName,text,user);
                 ImageRepository.deleteImage(imageName);
-                TranslatePublisher.publishRequest(text,imageName,isPremium);
+                TranslatePublisher.publishRequest(text,imageName,user,isPremium);
             } catch (IOException | InterruptedException | ExecutionException e) {
                 e.printStackTrace();
             }

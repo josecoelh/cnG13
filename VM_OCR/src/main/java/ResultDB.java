@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.concurrent.ExecutionException;
 
 public class ResultDB {
-    private final static String COLLECTION = "OCR";
+    private final static String COLLECTION = "Users", SUB_COLLECTION = "OCR";
     private static  GoogleCredentials credentials;
     private static CollectionReference cRef;
 
@@ -24,10 +24,12 @@ public class ResultDB {
     }
 
 
-     static void putText(String image, EntityAnnotation text) throws ExecutionException, InterruptedException {
-        DocumentReference dRef = cRef.document(image);
+     static void putText(String image, EntityAnnotation text, String user) throws ExecutionException, InterruptedException {
+         DocumentReference uRef = cRef.document(user);
+         CollectionReference ocrCollection = uRef.collection(SUB_COLLECTION);
+         DocumentReference dRef = ocrCollection.document(image);
          HashMap<String, Object> map = new HashMap<String, Object>();
-         map.put(text.getLocale(),text.getDescription());
+         map.put("Original",text.getDescription());
          dRef.set(map);
     }
 

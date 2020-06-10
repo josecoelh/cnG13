@@ -2,10 +2,8 @@ package clientapp;
 
 
 import com.google.protobuf.ByteString;
-import com.google.protobuf.Empty;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
-import io.grpc.stub.StreamObserver;
 import services.*;
 
 import java.io.*;
@@ -17,7 +15,6 @@ import java.util.*;
 public class Client {
 
     private static String svcIP = "localhost";
-    //private static String svcIP = "35.246.73.129";
     private static int svcPort = 8000;
     private static ManagedChannel channel;
     private static ServiceGrpc.ServiceBlockingStub blockingStub;
@@ -57,6 +54,12 @@ public class Client {
                         case 4:
                             requestOCR(session.getSession());
                             break;
+                        case 5:
+                            requestOCResult(session.getSession());
+                            break;
+                        case 6:
+                            requestTranslation(session.getSession());
+                            break;
                         case 99:
                             System.exit(0);
                     }
@@ -72,6 +75,8 @@ public class Client {
         }
     }
 
+
+
     static int Menu(Session session) {
         Scanner scan = new Scanner(System.in);
         int option;
@@ -86,6 +91,7 @@ public class Client {
                 System.out.println(" 3: List your images");
                 System.out.println(" 4: Request an OCR");
                 System.out.println(" 5: Request an OCR Result");
+                System.out.println(" 6: Request a Translation");
                 System.out.println("..........");
                 System.out.println("99: Exit");
                 System.out.print("Enter an Option:");
@@ -93,7 +99,7 @@ public class Client {
             option = scan.nextInt();
             if (option == 0 && session.hasSession()) option = INVALID;
             if (option != 0 && option <= 8 && !session.hasSession()) option = INVALID;
-        } while (!((option >= 0 && option <= 8) || option == 99));
+        } while (!((option >= 0 && option <= 6) || option == 99));
         return option;
     }
 
@@ -141,7 +147,8 @@ public class Client {
         System.out.println("Insert the image name for the OCR");
         String name = scanner.nextLine();
         OCRequest req = OCRequest.newBuilder().setImageId(name).setUser(sessionId).build();
-        blockingStub.requestOCR(req);
+        OCRStatus res = blockingStub.requestOCR(req);
+        if(res.getFailed()) System.out.println(res.getErrorMsg());
     }
 
     private static void requestOCResult(SessionId sessionId){
@@ -150,16 +157,33 @@ public class Client {
         String image = scanner.nextLine();
         OCRequest req = OCRequest.newBuilder().setImageId(image).setUser(sessionId).build();
         OCReply result = blockingStub.requestOCResult(req);
-        writeResult(image,result.getResult());
+        if(result.getFailed())
+            System.out.println(result.getErrorMsg());
+        else
+            writeResult(image,result.getResult(),"Result");
+    }
+
+    private static void requestTranslation(SessionId sessionId) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Insert the image name where the text you want to translate is");
+        String image = scanner.nextLine();
+        System.out.println("Insert the desired language");
+        String desiredLang = scanner.nextLine();
+        TranslationRequest req = TranslationRequest.newBuilder().setImageId(image).setDesiredLang(desiredLang).setUser(sessionId).build();
+        TranslationReply result = blockingStub.requestTranslation(req);
+        if(result.getFailed())
+            System.out.println(result.getErrorMsg());
+        else
+            writeResult(image,result.getResult(),desiredLang);
     }
 
 
-    private static void writeResult(String imageName, String result){
+    private static void writeResult(String imageName, String result, String request){
             String path = new File("src/main/resources/OCRResults/" + imageName+".txt")
                     .getAbsolutePath();
             try {
-                FileWriter fw = new FileWriter(path);
-                fw.write(String.format("Result : %s",result));
+                FileWriter fw = new FileWriter(path,true);
+                fw.append(String.format("%s : %s",request,result));
                 fw.close();
                 System.out.println("Check resources/OCRResults for your result\n");
             } catch (IOException e) {

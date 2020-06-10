@@ -156,21 +156,21 @@ public final class ServiceGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<services.OCRequest,
-      com.google.protobuf.Empty> getRequestOCRMethod;
+      services.OCRStatus> getRequestOCRMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "requestOCR",
       requestType = services.OCRequest.class,
-      responseType = com.google.protobuf.Empty.class,
+      responseType = services.OCRStatus.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<services.OCRequest,
-      com.google.protobuf.Empty> getRequestOCRMethod() {
-    io.grpc.MethodDescriptor<services.OCRequest, com.google.protobuf.Empty> getRequestOCRMethod;
+      services.OCRStatus> getRequestOCRMethod() {
+    io.grpc.MethodDescriptor<services.OCRequest, services.OCRStatus> getRequestOCRMethod;
     if ((getRequestOCRMethod = ServiceGrpc.getRequestOCRMethod) == null) {
       synchronized (ServiceGrpc.class) {
         if ((getRequestOCRMethod = ServiceGrpc.getRequestOCRMethod) == null) {
           ServiceGrpc.getRequestOCRMethod = getRequestOCRMethod = 
-              io.grpc.MethodDescriptor.<services.OCRequest, com.google.protobuf.Empty>newBuilder()
+              io.grpc.MethodDescriptor.<services.OCRequest, services.OCRStatus>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "primesservice.Service", "requestOCR"))
@@ -178,7 +178,7 @@ public final class ServiceGrpc {
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   services.OCRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.google.protobuf.Empty.getDefaultInstance()))
+                  services.OCRStatus.getDefaultInstance()))
                   .setSchemaDescriptor(new ServiceMethodDescriptorSupplier("requestOCR"))
                   .build();
           }
@@ -217,6 +217,38 @@ public final class ServiceGrpc {
         }
      }
      return getRequestOCResultMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<services.TranslationRequest,
+      services.TranslationReply> getRequestTranslationMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "requestTranslation",
+      requestType = services.TranslationRequest.class,
+      responseType = services.TranslationReply.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<services.TranslationRequest,
+      services.TranslationReply> getRequestTranslationMethod() {
+    io.grpc.MethodDescriptor<services.TranslationRequest, services.TranslationReply> getRequestTranslationMethod;
+    if ((getRequestTranslationMethod = ServiceGrpc.getRequestTranslationMethod) == null) {
+      synchronized (ServiceGrpc.class) {
+        if ((getRequestTranslationMethod = ServiceGrpc.getRequestTranslationMethod) == null) {
+          ServiceGrpc.getRequestTranslationMethod = getRequestTranslationMethod = 
+              io.grpc.MethodDescriptor.<services.TranslationRequest, services.TranslationReply>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "primesservice.Service", "requestTranslation"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  services.TranslationRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  services.TranslationReply.getDefaultInstance()))
+                  .setSchemaDescriptor(new ServiceMethodDescriptorSupplier("requestTranslation"))
+                  .build();
+          }
+        }
+     }
+     return getRequestTranslationMethod;
   }
 
   /**
@@ -277,7 +309,7 @@ public final class ServiceGrpc {
     /**
      */
     public void requestOCR(services.OCRequest request,
-        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<services.OCRStatus> responseObserver) {
       asyncUnimplementedUnaryCall(getRequestOCRMethod(), responseObserver);
     }
 
@@ -286,6 +318,13 @@ public final class ServiceGrpc {
     public void requestOCResult(services.OCRequest request,
         io.grpc.stub.StreamObserver<services.OCReply> responseObserver) {
       asyncUnimplementedUnaryCall(getRequestOCResultMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void requestTranslation(services.TranslationRequest request,
+        io.grpc.stub.StreamObserver<services.TranslationReply> responseObserver) {
+      asyncUnimplementedUnaryCall(getRequestTranslationMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
@@ -323,7 +362,7 @@ public final class ServiceGrpc {
             asyncUnaryCall(
               new MethodHandlers<
                 services.OCRequest,
-                com.google.protobuf.Empty>(
+                services.OCRStatus>(
                   this, METHODID_REQUEST_OCR)))
           .addMethod(
             getRequestOCResultMethod(),
@@ -332,6 +371,13 @@ public final class ServiceGrpc {
                 services.OCRequest,
                 services.OCReply>(
                   this, METHODID_REQUEST_OCRESULT)))
+          .addMethod(
+            getRequestTranslationMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                services.TranslationRequest,
+                services.TranslationReply>(
+                  this, METHODID_REQUEST_TRANSLATION)))
           .build();
     }
   }
@@ -389,7 +435,7 @@ public final class ServiceGrpc {
     /**
      */
     public void requestOCR(services.OCRequest request,
-        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<services.OCRStatus> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getRequestOCRMethod(), getCallOptions()), request, responseObserver);
     }
@@ -400,6 +446,14 @@ public final class ServiceGrpc {
         io.grpc.stub.StreamObserver<services.OCReply> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getRequestOCResultMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void requestTranslation(services.TranslationRequest request,
+        io.grpc.stub.StreamObserver<services.TranslationReply> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getRequestTranslationMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -451,7 +505,7 @@ public final class ServiceGrpc {
 
     /**
      */
-    public com.google.protobuf.Empty requestOCR(services.OCRequest request) {
+    public services.OCRStatus requestOCR(services.OCRequest request) {
       return blockingUnaryCall(
           getChannel(), getRequestOCRMethod(), getCallOptions(), request);
     }
@@ -461,6 +515,13 @@ public final class ServiceGrpc {
     public services.OCReply requestOCResult(services.OCRequest request) {
       return blockingUnaryCall(
           getChannel(), getRequestOCResultMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public services.TranslationReply requestTranslation(services.TranslationRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getRequestTranslationMethod(), getCallOptions(), request);
     }
   }
 
@@ -516,7 +577,7 @@ public final class ServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> requestOCR(
+    public com.google.common.util.concurrent.ListenableFuture<services.OCRStatus> requestOCR(
         services.OCRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getRequestOCRMethod(), getCallOptions()), request);
@@ -529,6 +590,14 @@ public final class ServiceGrpc {
       return futureUnaryCall(
           getChannel().newCall(getRequestOCResultMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<services.TranslationReply> requestTranslation(
+        services.TranslationRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getRequestTranslationMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_LOGIN = 0;
@@ -537,6 +606,7 @@ public final class ServiceGrpc {
   private static final int METHODID_LIST_USER_IMAGES = 3;
   private static final int METHODID_REQUEST_OCR = 4;
   private static final int METHODID_REQUEST_OCRESULT = 5;
+  private static final int METHODID_REQUEST_TRANSLATION = 6;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -573,11 +643,15 @@ public final class ServiceGrpc {
           break;
         case METHODID_REQUEST_OCR:
           serviceImpl.requestOCR((services.OCRequest) request,
-              (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
+              (io.grpc.stub.StreamObserver<services.OCRStatus>) responseObserver);
           break;
         case METHODID_REQUEST_OCRESULT:
           serviceImpl.requestOCResult((services.OCRequest) request,
               (io.grpc.stub.StreamObserver<services.OCReply>) responseObserver);
+          break;
+        case METHODID_REQUEST_TRANSLATION:
+          serviceImpl.requestTranslation((services.TranslationRequest) request,
+              (io.grpc.stub.StreamObserver<services.TranslationReply>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -646,6 +720,7 @@ public final class ServiceGrpc {
               .addMethod(getListUserImagesMethod())
               .addMethod(getRequestOCRMethod())
               .addMethod(getRequestOCResultMethod())
+              .addMethod(getRequestTranslationMethod())
               .build();
         }
       }

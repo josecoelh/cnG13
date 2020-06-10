@@ -37,11 +37,10 @@ public class TranslateSubscriber {
             String text = msg.getData().toStringUtf8();
             String currLang = msg.getAttributesOrDefault("lang", null);
             String imageName = msg.getAttributesOrDefault("imageName", null);
+            String user = msg.getAttributesOrDefault("user",null);
             try {
-                Translator.translate(imageName, text, currLang);
-            } catch (ExecutionException e) {
-                e.printStackTrace();
-            } catch (InterruptedException e) {
+                Translator.translate(user,imageName, text, currLang);
+            } catch (ExecutionException | InterruptedException e) {
                 e.printStackTrace();
             } finally {
                 ackReply.ack();

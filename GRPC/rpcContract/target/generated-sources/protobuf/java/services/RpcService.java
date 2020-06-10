@@ -15,10 +15,25 @@ public final class RpcService {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_primesservice_TranslationRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_primesservice_TranslationRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_primesservice_OCRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_primesservice_OCRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_primesservice_TranslationReply_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_primesservice_TranslationReply_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_primesservice_OCRStatus_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_primesservice_OCRStatus_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_primesservice_OCReply_descriptor;
   static final 
@@ -59,28 +74,37 @@ public final class RpcService {
   static {
     java.lang.String[] descriptorData = {
       "\n\020rpcService.proto\022\rprimesservice\032\033googl" +
-      "e/protobuf/empty.proto\"D\n\tOCRequest\022\017\n\007i" +
-      "mageId\030\001 \001(\t\022&\n\004user\030\002 \001(\0132\030.primesservi" +
-      "ce.SessionId\"\031\n\007OCReply\022\016\n\006result\030\001 \001(\t\"" +
-      "f\n\005Image\022\r\n\005image\030\001 \001(\014\022\021\n\timageName\030\002 \001" +
-      "(\t\022\023\n\013contentType\030\003 \001(\t\022&\n\004user\030\004 \001(\0132\030." +
-      "primesservice.SessionId\"\035\n\nUserImages\022\017\n" +
-      "\007imageId\030\001 \003(\t\"<\n\007ImageId\022\017\n\007imageId\030\001 \001" +
-      "(\t\022\016\n\006failed\030\002 \001(\010\022\020\n\010errorMsg\030\003 \001(\t\"2\n\t" +
-      "ProtoUser\022\020\n\010username\030\001 \001(\t\022\023\n\013accountTy" +
-      "pe\030\002 \001(\t\"X\n\tSessionId\022\n\n\002id\030\001 \001(\t\022\021\n\tisP" +
-      "remium\030\002 \001(\010\022\023\n\013credentials\030\003 \001(\010\022\027\n\017alr" +
-      "eadyLoggedIn\030\004 \001(\0102\210\003\n\007Service\022;\n\005login\022" +
-      "\030.primesservice.ProtoUser\032\030.primesservic" +
-      "e.SessionId\0229\n\005close\022\030.primesservice.Ses" +
-      "sionId\032\026.google.protobuf.Empty\0229\n\tsendIm" +
-      "age\022\024.primesservice.Image\032\026.primesservic" +
-      "e.ImageId\022E\n\016listUserImages\022\030.primesserv" +
-      "ice.SessionId\032\031.primesservice.UserImages" +
-      "\022>\n\nrequestOCR\022\030.primesservice.OCRequest" +
-      "\032\026.google.protobuf.Empty\022C\n\017requestOCRes" +
-      "ult\022\030.primesservice.OCRequest\032\026.primesse" +
-      "rvice.OCReplyB\014\n\010servicesP\001b\006proto3"
+      "e/protobuf/empty.proto\"b\n\022TranslationReq" +
+      "uest\022\017\n\007imageId\030\001 \001(\t\022&\n\004user\030\002 \001(\0132\030.pr" +
+      "imesservice.SessionId\022\023\n\013desiredLang\030\003 \001" +
+      "(\t\"D\n\tOCRequest\022\017\n\007imageId\030\001 \001(\t\022&\n\004user" +
+      "\030\002 \001(\0132\030.primesservice.SessionId\"D\n\020Tran" +
+      "slationReply\022\016\n\006result\030\001 \001(\t\022\016\n\006failed\030\002" +
+      " \001(\010\022\020\n\010errorMsg\030\003 \001(\t\"-\n\tOCRStatus\022\016\n\006f" +
+      "ailed\030\001 \001(\010\022\020\n\010errorMsg\030\002 \001(\t\";\n\007OCReply" +
+      "\022\016\n\006result\030\001 \001(\t\022\016\n\006failed\030\002 \001(\010\022\020\n\010erro" +
+      "rMsg\030\003 \001(\t\"f\n\005Image\022\r\n\005image\030\001 \001(\014\022\021\n\tim" +
+      "ageName\030\002 \001(\t\022\023\n\013contentType\030\003 \001(\t\022&\n\004us" +
+      "er\030\004 \001(\0132\030.primesservice.SessionId\"/\n\nUs" +
+      "erImages\022\017\n\007imageId\030\001 \003(\t\022\020\n\010errorMsg\030\002 " +
+      "\001(\t\"<\n\007ImageId\022\017\n\007imageId\030\001 \001(\t\022\016\n\006faile" +
+      "d\030\002 \001(\010\022\020\n\010errorMsg\030\003 \001(\t\"2\n\tProtoUser\022\020" +
+      "\n\010username\030\001 \001(\t\022\023\n\013accountType\030\002 \001(\t\"X\n" +
+      "\tSessionId\022\n\n\002id\030\001 \001(\t\022\021\n\tisPremium\030\002 \001(" +
+      "\010\022\023\n\013credentials\030\003 \001(\010\022\027\n\017alreadyLoggedI" +
+      "n\030\004 \001(\0102\344\003\n\007Service\022;\n\005login\022\030.primesser" +
+      "vice.ProtoUser\032\030.primesservice.SessionId" +
+      "\0229\n\005close\022\030.primesservice.SessionId\032\026.go" +
+      "ogle.protobuf.Empty\0229\n\tsendImage\022\024.prime" +
+      "sservice.Image\032\026.primesservice.ImageId\022E" +
+      "\n\016listUserImages\022\030.primesservice.Session" +
+      "Id\032\031.primesservice.UserImages\022@\n\nrequest" +
+      "OCR\022\030.primesservice.OCRequest\032\030.primesse" +
+      "rvice.OCRStatus\022C\n\017requestOCResult\022\030.pri" +
+      "messervice.OCRequest\032\026.primesservice.OCR" +
+      "eply\022X\n\022requestTranslation\022!.primesservi" +
+      "ce.TranslationRequest\032\037.primesservice.Tr" +
+      "anslationReplyB\014\n\010servicesP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -95,44 +119,62 @@ public final class RpcService {
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.protobuf.EmptyProto.getDescriptor(),
         }, assigner);
-    internal_static_primesservice_OCRequest_descriptor =
+    internal_static_primesservice_TranslationRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_primesservice_TranslationRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_primesservice_TranslationRequest_descriptor,
+        new java.lang.String[] { "ImageId", "User", "DesiredLang", });
+    internal_static_primesservice_OCRequest_descriptor =
+      getDescriptor().getMessageTypes().get(1);
     internal_static_primesservice_OCRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_primesservice_OCRequest_descriptor,
         new java.lang.String[] { "ImageId", "User", });
+    internal_static_primesservice_TranslationReply_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_primesservice_TranslationReply_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_primesservice_TranslationReply_descriptor,
+        new java.lang.String[] { "Result", "Failed", "ErrorMsg", });
+    internal_static_primesservice_OCRStatus_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_primesservice_OCRStatus_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_primesservice_OCRStatus_descriptor,
+        new java.lang.String[] { "Failed", "ErrorMsg", });
     internal_static_primesservice_OCReply_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_primesservice_OCReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_primesservice_OCReply_descriptor,
-        new java.lang.String[] { "Result", });
+        new java.lang.String[] { "Result", "Failed", "ErrorMsg", });
     internal_static_primesservice_Image_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_primesservice_Image_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_primesservice_Image_descriptor,
         new java.lang.String[] { "Image", "ImageName", "ContentType", "User", });
     internal_static_primesservice_UserImages_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_primesservice_UserImages_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_primesservice_UserImages_descriptor,
-        new java.lang.String[] { "ImageId", });
+        new java.lang.String[] { "ImageId", "ErrorMsg", });
     internal_static_primesservice_ImageId_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_primesservice_ImageId_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_primesservice_ImageId_descriptor,
         new java.lang.String[] { "ImageId", "Failed", "ErrorMsg", });
     internal_static_primesservice_ProtoUser_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_primesservice_ProtoUser_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_primesservice_ProtoUser_descriptor,
         new java.lang.String[] { "Username", "AccountType", });
     internal_static_primesservice_SessionId_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_primesservice_SessionId_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_primesservice_SessionId_descriptor,

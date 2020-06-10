@@ -12,17 +12,37 @@ service Service {
     rpc close(SessionId) returns (google.protobuf.Empty);
     rpc sendImage(Image) returns (ImageId);
     rpc listUserImages(SessionId) returns (UserImages);
-    rpc requestOCR(OCRequest) returns (google.protobuf.Empty);
+    rpc requestOCR(OCRequest) returns (OCRStatus);
     rpc requestOCResult(OCRequest) returns(OCReply);
+    rpc requestTranslation(TranslationRequest) returns (TranslationReply);
 }
+
+message TranslationRequest{
+    string imageId = 1;
+    SessionId user = 2;
+    string desiredLang = 3;
+}
+
 
 message OCRequest{
     string imageId = 1;
     SessionId user = 2;
 }
 
+message TranslationReply{
+    string result = 1;
+    bool failed = 2;
+    string errorMsg = 3;
+}
+message OCRStatus{
+    bool failed = 1;
+    string errorMsg = 2;
+}
+
 message OCReply{
     string result = 1;
+    bool failed = 2;
+    string errorMsg = 3;
 }
 message Image{
     bytes image = 1;
@@ -34,6 +54,7 @@ message Image{
 message UserImages {
     // list of topic names
     repeated string imageId = 1;
+    string errorMsg = 2;
 }
 
 message ImageId {
@@ -42,7 +63,7 @@ message ImageId {
     string errorMsg = 3;
 }
 
-    message ProtoUser {
+message ProtoUser {
     string username = 1;
     string accountType = 2;
 }

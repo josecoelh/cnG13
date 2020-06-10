@@ -26,7 +26,6 @@ public class Vision {
                     throw new Exception(String.format("Error: %s\n", res.getError().getMessage()));
                 }
                 return res.getTextAnnotationsList().get(0);
-
             }
         } catch (Exception e) {
             e.printStackTrace();

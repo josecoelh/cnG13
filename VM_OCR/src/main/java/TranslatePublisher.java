@@ -12,7 +12,7 @@ public class TranslatePublisher {
     private static final String PROJECT_ID = "G13-LEIC61D-V1920";
 
 
-    static void publishRequest(EntityAnnotation text,String imageName, boolean isPremium) throws IOException {
+    static void publishRequest(EntityAnnotation text,String imageName, String user, boolean isPremium) throws IOException {
         String topic = isPremium? PREMIUM_TOPIC : FREE_TOPIC;
         TopicName tName = TopicName.ofProjectTopicName(PROJECT_ID, topic);
         Publisher publisher = Publisher.newBuilder(tName).build();
@@ -21,6 +21,7 @@ public class TranslatePublisher {
                 .setData(msgData)
                 .putAttributes("lang",text.getLocale())
                 .putAttributes("imageName",imageName)
+                .putAttributes("user",user)
                 .build();
         publisher.publish(pubsubMessage);
         publisher.shutdown();

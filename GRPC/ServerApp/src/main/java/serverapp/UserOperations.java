@@ -56,6 +56,11 @@ public class UserOperations {
         images.add(imageId);
         DocumentReference docRef = cRef.document(username);
         docRef.update("images", images);
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     public void removeUserImg(String username, String imageId)  {
@@ -63,6 +68,11 @@ public class UserOperations {
         images.remove(imageId);
         DocumentReference docRef = cRef.document(username);
         docRef.update("images", images);
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     private List<String> getUserImg(String username){

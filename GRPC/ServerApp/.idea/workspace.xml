@@ -2,45 +2,88 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b69338c1-2800-46b2-aa27-6a70c64be164" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../TranslateRequest/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../TranslateRequest/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../TranslateRequest/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../TranslateRequest/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../TranslateRequest/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../TranslateRequest/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../TranslateRequest/TranslateRequest.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../TranslateRequest/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../TranslateRequest/src/main/java/Database.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../TranslateRequest/src/main/java/ResultDB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../TranslateRequest/src/main/java/TranslateService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../TranslateRequest/src/main/java/TranslateSubscriber.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../TranslateRequest/src/main/java/Translator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../TranslateRequest/target/TranslateRequest-1.0-SNAPSHOT-jar-with-dependencies.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../TranslateRequest/target/TranslateRequest-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../TranslateRequest/target/classes/Database$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../TranslateRequest/target/classes/Database.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../TranslateRequest/target/classes/ResultDB.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../TranslateRequest/target/classes/TranslateService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../TranslateRequest/target/classes/TranslateSubscriber$MessageReceiveHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../TranslateRequest/target/classes/TranslateSubscriber.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../TranslateRequest/target/classes/Translator.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../TranslateRequest/target/maven-archiver/pom.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../TranslateRequest/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../TranslateRequest/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../TranslateRequest/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../VM_OCR/src/main/java/TranslatePublisher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../VM_OCR/target/classes/TranslatePublisher.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ClientApp/src/main/resources/OCRResults/img3.JPG.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ClientApp/src/main/resources/OCRResults/it.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ClientApp/target/classes/OCRResults/img3.JPG.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ClientApp/target/classes/OCRResults/it.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_apis_google_api_services_compute_v1_rev20200311_1_30_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_cloud_google_cloud_compute_0_118_0_alpha.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/serverapp/VMLauncher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpcContract/target/generated-sources/protobuf/java/services/OCRStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpcContract/target/generated-sources/protobuf/java/services/OCRStatusOrBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpcContract/target/generated-sources/protobuf/java/services/TranslationReply.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpcContract/target/generated-sources/protobuf/java/services/TranslationReplyOrBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpcContract/target/generated-sources/protobuf/java/services/TranslationRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rpcContract/target/generated-sources/protobuf/java/services/TranslationRequestOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClientApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientApp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClientApp/src/main/java/clientapp/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientApp/src/main/java/clientapp/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClientApp/target/classes/clientapp/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientApp/target/classes/clientapp/Client.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../VM_OCR/classes/artifacts/G13_CN_jar/G13-CN.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../VM_OCR/classes/artifacts/G13_CN_jar/G13-CN.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../VM_OCR/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../VM_OCR/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../VM_OCR/src/main/java/OCRService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../VM_OCR/src/main/java/OCRService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BaseServiceImpl.iml" beforeDir="false" afterPath="$PROJECT_DIR$/BaseServiceImpl.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/serverapp/OCRPublisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serverapp/OCRPublisher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/serverapp/ResultDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serverapp/ResultDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/serverapp/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serverapp/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/serverapp/UserOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serverapp/UserOperations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/serverapp/OCRPublisher.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/serverapp/OCRPublisher.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/serverapp/ResultDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/serverapp/ResultDB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/serverapp/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/serverapp/Server.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/rpcContract-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/rpcContract-1.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/src/main/proto/rpcService.proto" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/src/main/proto/rpcService.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/classes/rpcService.proto" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/target/classes/rpcService.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/classes/services/OCReply$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/target/classes/services/OCReply$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/classes/services/OCReply$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/target/classes/services/OCReply$Builder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/classes/services/OCReply.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/target/classes/services/OCReply.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/classes/services/OCReplyOrBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/target/classes/services/OCReplyOrBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/classes/services/RpcService$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/target/classes/services/RpcService$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/classes/services/RpcService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/target/classes/services/RpcService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/classes/services/ServiceGrpc$MethodHandlers.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/target/classes/services/ServiceGrpc$MethodHandlers.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/classes/services/ServiceGrpc$ServiceBaseDescriptorSupplier.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/target/classes/services/ServiceGrpc$ServiceBaseDescriptorSupplier.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/classes/services/ServiceGrpc$ServiceBlockingStub.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/target/classes/services/ServiceGrpc$ServiceBlockingStub.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/classes/services/ServiceGrpc$ServiceFileDescriptorSupplier.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/target/classes/services/ServiceGrpc$ServiceFileDescriptorSupplier.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/classes/services/ServiceGrpc$ServiceFutureStub.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/target/classes/services/ServiceGrpc$ServiceFutureStub.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/classes/services/ServiceGrpc$ServiceImplBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/target/classes/services/ServiceGrpc$ServiceImplBase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/classes/services/ServiceGrpc$ServiceMethodDescriptorSupplier.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/target/classes/services/ServiceGrpc$ServiceMethodDescriptorSupplier.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/classes/services/ServiceGrpc$ServiceStub.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/target/classes/services/ServiceGrpc$ServiceStub.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/classes/services/ServiceGrpc.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/target/classes/services/ServiceGrpc.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/classes/services/UserImages$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/target/classes/services/UserImages$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/classes/services/UserImages$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/target/classes/services/UserImages$Builder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/classes/services/UserImages.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/target/classes/services/UserImages.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/classes/services/UserImagesOrBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/target/classes/services/UserImagesOrBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/generated-sources/protobuf/grpc-java/services/ServiceGrpc.java" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/target/generated-sources/protobuf/grpc-java/services/ServiceGrpc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/generated-sources/protobuf/java/services/OCReply.java" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/target/generated-sources/protobuf/java/services/OCReply.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/generated-sources/protobuf/java/services/OCReplyOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/target/generated-sources/protobuf/java/services/OCReplyOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/generated-sources/protobuf/java/services/RpcService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/target/generated-sources/protobuf/java/services/RpcService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/generated-sources/protobuf/java/services/UserImages.java" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/target/generated-sources/protobuf/java/services/UserImages.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/generated-sources/protobuf/java/services/UserImagesOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/target/generated-sources/protobuf/java/services/UserImagesOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/rpcContract-1.0-jar-with-dependencies.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/target/rpcContract-1.0-jar-with-dependencies.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rpcContract/target/rpcContract-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../rpcContract/target/rpcContract-1.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TranslateRequest/src/main/java/Database.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TranslateRequest/src/main/java/ResultDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../TranslateRequest/src/main/java/ResultDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TranslateRequest/src/main/java/TranslateSubscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../TranslateRequest/src/main/java/TranslateSubscriber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TranslateRequest/src/main/java/Translator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../TranslateRequest/src/main/java/Translator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TranslateRequest/target/TranslateRequest-1.0-SNAPSHOT-jar-with-dependencies.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TranslateRequest/target/TranslateRequest-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../TranslateRequest/target/TranslateRequest-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TranslateRequest/target/classes/Database$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TranslateRequest/target/classes/Database.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TranslateRequest/target/classes/ResultDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../TranslateRequest/target/classes/ResultDB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TranslateRequest/target/classes/TranslateSubscriber$MessageReceiveHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../TranslateRequest/target/classes/TranslateSubscriber$MessageReceiveHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TranslateRequest/target/classes/Translator.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../TranslateRequest/target/classes/Translator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TranslateRequest/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../../TranslateRequest/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../VM_OCR/src/main/java/OCRSubscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../VM_OCR/src/main/java/OCRSubscriber.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../VM_OCR/src/main/java/ResultDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../VM_OCR/src/main/java/ResultDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../VM_OCR/src/main/java/TranslatePublisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../VM_OCR/src/main/java/TranslatePublisher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../VM_OCR/src/main/java/Vision.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../VM_OCR/src/main/java/Vision.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../VM_OCR/target/G13-CN-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../VM_OCR/target/G13-CN-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../VM_OCR/target/classes/OCRService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../VM_OCR/target/classes/OCRService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../VM_OCR/target/classes/OCRSubscriber$MessageReceiveHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../VM_OCR/target/classes/OCRSubscriber$MessageReceiveHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../VM_OCR/target/classes/OCRSubscriber.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../VM_OCR/target/classes/OCRSubscriber.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../VM_OCR/target/classes/ResultDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../VM_OCR/target/classes/ResultDB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../VM_OCR/target/classes/TranslatePublisher.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../VM_OCR/target/classes/TranslatePublisher.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../VM_OCR/target/classes/Vision.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../VM_OCR/target/classes/Vision.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../VM_OCR/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../../VM_OCR/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -84,7 +127,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../VM_OCR" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.0" />
@@ -148,6 +191,7 @@
       <workItem from="1591192364692" duration="7762000" />
       <workItem from="1591605511186" duration="17000" />
       <workItem from="1591732059183" duration="1463000" />
+      <workItem from="1591794594326" duration="12240000" />
     </task>
     <servers />
   </component>
@@ -171,19 +215,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/serverapp/Server.java</url>
-          <line>88</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/serverapp/Server.java</url>
-          <line>97</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/serverapp/OCRPublisher.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="7" />
+          <url>file://$PROJECT_DIR$/src/main/java/serverapp/UserOperations.java</url>
+          <line>54</line>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

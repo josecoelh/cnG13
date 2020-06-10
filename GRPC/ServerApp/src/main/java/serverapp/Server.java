@@ -17,6 +17,7 @@ public class Server extends ServiceGrpc.ServiceImplBase {
     private static UserOperations userOps;
     private static ImageRepository imgRepo;
     private static OCRPublisher ocrHandler;
+    private static VMLauncher vmManager;
     private static ConcurrentLinkedQueue<String> sessionQueue = new ConcurrentLinkedQueue<>();
     private static final Object monitor = new Object();
 
@@ -32,8 +33,7 @@ public class Server extends ServiceGrpc.ServiceImplBase {
             userOps = new UserOperations();
             imgRepo = new ImageRepository();
             ocrHandler = new OCRPublisher();
-
-
+            vmManager = new VMLauncher();
 
 
             System.out.println("Server started, listening on " + svcPort);
@@ -66,7 +66,9 @@ public class Server extends ServiceGrpc.ServiceImplBase {
                         .setIsPremium(user.getAccountType().equals("Premium"))
                         .setCredentials(true)
                         .setAlreadyLoggedIn(false).build();
+                if(protoUser.getAccountType().equals("Premium")) vmManager.incrementVM();
                 sessionQueue.add(user.getUsername());
+
             }
             responseObserver.onNext(sessionId);
             responseObserver.onCompleted();
@@ -79,6 +81,7 @@ public class Server extends ServiceGrpc.ServiceImplBase {
     public void close(SessionId request, StreamObserver<Empty> responseObserver) {
         synchronized (monitor) {
             sessionQueue.remove(request.getId());
+            if(request.getIsPremium()) vmManager.decrementVM();
             responseObserver.onNext(Empty.newBuilder().build());
             responseObserver.onCompleted();
         }
@@ -90,7 +93,6 @@ public class Server extends ServiceGrpc.ServiceImplBase {
         if (!response.getFailed()) userOps.addUserImg(request.getUser().getId(), request.getImageName());
         responseObserver.onNext(response);
         responseObserver.onCompleted();
-
     }
 
     @Override
@@ -101,23 +103,46 @@ public class Server extends ServiceGrpc.ServiceImplBase {
     }
 
     @Override
-    public void requestOCR(OCRequest request, StreamObserver<Empty> responseObserver) {
+    public void requestOCR(OCRequest request, StreamObserver<OCRStatus> responseObserver) {
         try {
-            userOps.removeUserImg(request.getUser().getId(),request.getImageId());
-            ocrHandler.publishRequest(request);
+            String user = request.getUser().getId();
+            OCRStatus resp;
+            if (userOps.listUserImages(user).getImageIdList().contains(request.getImageId())) {
+                userOps.removeUserImg(request.getUser().getId(), request.getImageId());
+                ocrHandler.publishRequest(request);
+                resp = OCRStatus.newBuilder().setFailed(false).build();
+            } else {
+                resp = OCRStatus.newBuilder().setFailed(true).setErrorMsg("You do not own this image").build();
+            }
+            responseObserver.onNext(resp);
+            responseObserver.onCompleted();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        responseObserver.onNext(Empty.newBuilder().build());
-        responseObserver.onCompleted();
     }
 
     public void requestOCResult(OCRequest request, StreamObserver<OCReply> responseObserver) {
-        String res = ResultDB.getText(request.getImageId());
-        OCReply reply = OCReply.newBuilder().setResult(res).build();
+        String user = request.getUser().getId();
+        String res = ResultDB.getText(request.getImageId(), user, null);
+        OCReply reply;
+        if (res != null)
+            reply = OCReply.newBuilder().setResult(res).setFailed(false).build();
+        else
+            reply = OCReply.newBuilder().setFailed(true).setErrorMsg("result not ready or you do not own this image").build();
         responseObserver.onNext(reply);
         responseObserver.onCompleted();
     }
 
 
+    public void requestTranslation(TranslationRequest request, StreamObserver<TranslationReply> responseObserver) {
+        String user = request.getUser().getId();
+        String res = ResultDB.getText(request.getImageId(), user, request.getDesiredLang());
+        TranslationReply reply;
+        if (res != null)
+            reply = TranslationReply.newBuilder().setResult(res).setFailed(false).build();
+        else
+            reply = TranslationReply.newBuilder().setFailed(true).setErrorMsg("result not ready or you do not own this image").build();
+        responseObserver.onNext(reply);
+        responseObserver.onCompleted();
+    }
 }
