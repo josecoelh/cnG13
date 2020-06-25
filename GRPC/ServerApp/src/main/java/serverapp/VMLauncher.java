@@ -20,7 +20,7 @@ import java.util.List;
 public class VMLauncher {
     final static String MACHINE_TYPE = "f1-micro",
             PROJECT_ID = "g13-leic61d-v1920",
-            ZONE_NAME = " europe-west1-c",
+            ZONE_NAME = "europe-west1-c",
             INSTANCE_GROUP_OCR = "instance-group-ocr",
             INSTANCE_GROUP_TRANSLATE = "instance-group-translation";
     Compute compute;
